@@ -1,0 +1,47 @@
+.headerContainerMobile {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+  height: 5rem;
+  padding: 2rem;
+
+  div {
+    display: flex;
+    align-items: center;
+
+    img {
+      &:first-of-type {
+        display: none;
+      }
+    }
+  }
+
+  @media (min-width: 768px){
+    div {
+      img {
+        &:first-of-type {
+          display: block;
+        }
+
+        &:last-of-type{
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+.socialIconsMobile {
+  margin-left: auto;
+  a {
+    transition: filter 0.2s;
+
+    & + a {
+      margin-left: 1rem;
+    }
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}
