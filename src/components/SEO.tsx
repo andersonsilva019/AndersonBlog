@@ -17,7 +17,7 @@ export default function SEO({
   shouldIndexPage = true
 }: SEOProps) {
 
-  const pageTitle = `${title} | Blog`
+  const pageTitle = `${title} | FastLearn`
   const pageImage = image ? `${API_URL}/${image}` : null
 
   return (
