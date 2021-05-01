@@ -68,7 +68,7 @@
     font-size: 1.25rem;
     font-weight: normal;
     text-align: justify;
-    color: #E1E1E6;
+    color: var(--white-100);
     display: -webkit-box;
     -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
@@ -141,7 +141,7 @@
     p {
       margin-top: 1rem;
       font-size: 1.25rem;
-      color: #E1E1E6;
+      color: var(--white-100);
       font-weight: normal;
       text-align: justify;
       color: var(--white);
