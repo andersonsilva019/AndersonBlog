@@ -1,32 +1,41 @@
 import { GetStaticPaths, GetStaticProps } from "next"
-import Prism from 'prismjs';
+import Link from "next/link";
 import Image from 'next/image'
-import { RichText } from "prismic-dom"
-import SEO from "../../components/SEO"
+
+import { MdKeyboardArrowRight } from 'react-icons/md'
+import { RichText } from 'prismic-reactjs'
+
 import { prismicClient } from "../../services/prismic"
+import SEO from "../../components/SEO"
+
+import { TextSlice, ImageSlice, CodeSlice } from '../../components/SlicePost'
 
 import styles from './styles.module.scss'
 
-type Post = {
-  slug: string
-  title: string
-  thumbnail: {
-    url: string
-    alt: string
-  },
-  content: string
-  excerpt: string
-  updatedAt: string
-}
+export default function Post({ post }) {
 
-type PostProps = {
-  post: Post
-}
+  const blogContent = post.body.map((slice, index) => {
+    if (slice.slice_type === "text") {
+      return <TextSlice slice={slice} key={index} />;
+    } else if (slice.slice_type === 'code') {
+      return <CodeSlice content={slice.primary.code_field} key={index} />;
+    } else if (slice.slice_type === 'image') {
+      return <ImageSlice slice={slice} />
+    } else {
+      return null
+    }
+  });
 
-export default function Post({ post }: PostProps) {
   return (
     <article className={styles.post}>
-      <SEO title={post.title} description={post.excerpt} image={post.thumbnail.url} />
+      <SEO title={post.title} description={post.except.substring(150, 0)} image={post.thumbnail.url} />
+      <aside className={styles.breadcrumb}>
+        <Link href="/">
+          <a>Home</a>
+        </Link>
+        <MdKeyboardArrowRight size={20} />
+        <span>{post.slug}</span>
+      </aside>
       <time>{post.updatedAt}</time>
       <Image
         src={post.thumbnail.url}
@@ -36,7 +45,9 @@ export default function Post({ post }: PostProps) {
         objectFit="fill"
       />
       <h1>{post.title}</h1>
-      <div className={styles.content} dangerouslySetInnerHTML={{ __html: post.content }} />
+      <div className={styles.content}>
+        {blogContent}
+      </div>
     </article>
   )
 }
@@ -54,19 +65,17 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   const prismic = prismicClient()
 
-  const response = await prismic.getByUID('post', String(slug), {})
-
-  console.log(JSON.stringify(response, null, 2))
+  const response = await prismic.getByUID('article', slug as string, {})
 
   const post = {
     slug,
     title: RichText.asText(response.data.title),
     thumbnail: {
-      url: response.data.thumbnail.url,
-      alt: response.data.thumbnail.alt
+      url: response.data?.thumbnail.url,
+      alt: response.data?.thumbnail.alt
     },
-    content: RichText.asHtml(response.data.content),
-    excerpt: response.data.content.find(content => content.type === 'paragraph')?.text.substring(150, 0) ?? '',
+    body: response.data.body,
+    except: RichText.asText(response.data.except),
     updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: 'long',

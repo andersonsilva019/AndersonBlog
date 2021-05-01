@@ -1,9 +1,11 @@
 import { GetStaticProps } from 'next'
 import Link from 'next/link'
-import { RichText } from 'prismic-dom'
+import { RichText } from 'prismic-reactjs'
 import Prismic from '@prismicio/client'
+
 import SEO from '../components/SEO'
 import { prismicClient } from '../services/prismic'
+
 import styles from './Home.module.scss'
 
 type Post = {
@@ -13,9 +15,10 @@ type Post = {
     alt: string
   }
   title: string
+  except: string
   content: string
-  excerpt: string
   updatedAt: string
+  description: string
 }
 
 type HomeProps = {
@@ -34,7 +37,7 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
           <div className={styles.wrapperInfolastPost}>
             <time>{lastPost.updatedAt}</time>
             <h1>{lastPost.title}</h1>
-            <p>{lastPost.excerpt}</p>
+            <p>{lastPost.except}</p>
           </div>
         </a>
       </Link>
@@ -42,19 +45,18 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
       <h2>Mais posts</h2>
       <ul className={styles.sectionMorePosts}>
         {allPosts.map(post => (
-          <li className={styles.posts} title="How to Add a Double Border to SVG Shapes" key={post.slug}>
+          <li className={styles.posts} title={post.title} key={post.slug}>
             <Link href={`/post/${post.slug}`}>
               <a>
                 <img src={post.thumbnail.url} alt={post.thumbnail.alt} />
                 <div>
                   <time>{post.updatedAt}</time>
                   <h3>{post.title}</h3>
-                  <p>{post.excerpt}</p>
+                  <p>{post.except}</p>
                 </div>
               </a>
             </Link>
           </li>
-
         ))}
       </ul>
     </div>
@@ -66,23 +68,22 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = prismicClient()
 
   const response = await prismic.query(
-    Prismic.Predicates.at('document.type', 'post'),
+    Prismic.Predicates.at('document.type', 'article'),
     {
       pageSize: 7,
-      orderings: '[post.date desc]'
+      orderings: '[article.date desc]'
     }
   )
-
   const posts = response.results.map(post => {
     return {
       slug: post.uid,
       thumbnail: {
-        url: post.data.thumbnail.url,
-        alt: post.data.thumbnail.alt,
+        url: post.data?.thumbnail.url,
+        alt: post.data?.thumbnail.alt,
       },
       title: RichText.asText(post.data.title),
-      excerpt: post.data.content.find(content => content.type === 'paragraph')?.text ?? '',
-      content: RichText.asHtml(post.data.content),
+      except: RichText.asText(post.data.except),
+      body: post.data?.body,
       updatedAt: new Date(post.last_publication_date).toLocaleDateString('pt-BR', {
         day: '2-digit',
         month: 'long',
@@ -90,6 +91,8 @@ export const getStaticProps: GetStaticProps = async () => {
       })
     }
   })
+
+
 
   const lastPost = posts.shift()
   const allPosts = [...posts]

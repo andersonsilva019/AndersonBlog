@@ -1,12 +1,6 @@
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import styles from './styles.module.scss'
 
-/**
- * 425px -> Mobile
- * 768px -> Tablet
- * 1024px -> Desktop
- */
-
 export function Header() {
   return (
     <header className={styles.headerContainerMobile}>
