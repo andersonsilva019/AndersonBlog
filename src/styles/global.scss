@@ -6,10 +6,13 @@
 
 :root {
   --white: #FFF;
+  --white-100: #E1E1E6;
 
   --orange-50: #FCA311;
 
   --blue-600: #1D3557;
+
+  --gray-700: #3D3C42;
 
   --black-600: #2B2D42;
   --black-900: #03071E;
@@ -59,4 +62,24 @@ h4 {
 
 button {
   cursor: pointer;
+}
+
+body::-webkit-scrollbar-corner{
+  border: none;
+  background: none;
+}
+
+body::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background:transparent;        /* color of the tracking area */
+  border: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--gray-700);    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  cursor: move;
 }
