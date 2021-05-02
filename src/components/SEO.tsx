@@ -8,7 +8,7 @@ interface SEOProps {
 }
 
 
-const API_URL = process.env.NODE_ENV === 'production' ? 'https://personnel-blog.vercel.app/' : 'http://localhost:3000'
+// const API_URL = process.env.NODE_ENV === 'production' ? 'https://personnel-blog.vercel.app/' : 'http://localhost:3000'
 
 export default function SEO({
   title,
@@ -18,13 +18,12 @@ export default function SEO({
 }: SEOProps) {
 
   const pageTitle = `${title} | AndersonSilva`
-  const pageImage = image ? `${API_URL}/${image}` : null
 
   return (
     <Head>
       <title>{pageTitle}</title>
       {description && <meta name="description" content={description} />}
-      {pageImage && <meta name="image" content={pageImage} />}
+      {image && <meta name="image" content={image} />}
       {!shouldIndexPage && <meta name="robots" content="noindex/nofollow" />}
 
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
