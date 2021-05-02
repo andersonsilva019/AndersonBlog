@@ -8,7 +8,7 @@ interface SEOProps {
 }
 
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://personnel-blog.vercel.app/' : 'http://localhost:3000'
 
 export default function SEO({
   title,

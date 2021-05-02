@@ -59,7 +59,13 @@
   }
 
   ul {
+    text-align: justify;
     padding-left: 2rem;
+    line-height: 1.875rem;
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    font-weight: normal;
+    color: var(--white-100);
   }
 
   li {
@@ -67,13 +73,17 @@
   }
 
   h3 {
-    margin-top: 1rem;
+    margin-top: 2rem;
     font-weight: bold;
   }
 
   a {
     color: var(--orange-50);
     font-weight: bold;
+  }
+
+  strong {
+    font-size: 1.125rem;
   }
 }
 
