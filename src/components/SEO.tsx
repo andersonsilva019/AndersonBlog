@@ -8,7 +8,7 @@ interface SEOProps {
 }
 
 
-// const API_URL = process.env.NODE_ENV === 'production' ? 'https://personnel-blog.vercel.app/' : 'http://localhost:3000'
+const API_URL = process.env.NODE_ENV === 'production' ? 'https://personnel-blog.vercel.app/' : 'http://localhost:3000'
 
 export default function SEO({
   title,
@@ -39,8 +39,8 @@ export default function SEO({
       <meta property="og:locale" content="pt_BR" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={pageTitle} />
-      <meta property="og:image" content={pageImage} />
-      <meta property="og:image:secure_url" content={pageImage} />
+      <meta property="og:image" content={image} />
+      <meta property="og:image:secure_url" content={image} />
       <meta property="og:image:alt" content="Thumbnail" />
       <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="320" />
