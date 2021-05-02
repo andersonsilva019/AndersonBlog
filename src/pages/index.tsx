@@ -1,4 +1,5 @@
 import { GetStaticProps } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
 import Prismic from '@prismicio/client'
@@ -37,13 +38,19 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
       <h2>Último post</h2>
       <Link href={`/post/${lastPost.slug}`}>
         <a className={styles.lastPost}>
-          <motion.img
-            src={lastPost.thumbnail.url}
-            alt={lastPost.thumbnail.alt}
+          <motion.figure
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-          />
+          >
+            <Image
+              src={lastPost.thumbnail.url}
+              alt={lastPost.thumbnail.alt}
+              objectFit="cover"
+              width={630}
+              height={380}
+            />
+          </motion.figure>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -63,7 +70,14 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
           <li className={styles.posts} title={post.title} key={post.slug}>
             <Link href={`/post/${post.slug}`}>
               <a>
-                <img src={post.thumbnail.url} alt={post.thumbnail.alt} />
+                <Image
+                  src={post.thumbnail.url}
+                  alt={post.thumbnail.alt}
+                  width={330}
+                  height={200}
+                  objectFit="cover"
+                  layout="responsive"
+                />
                 <div>
                   <time>{post.updatedAt}</time>
                   <h3>{post.title}</h3>
