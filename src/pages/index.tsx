@@ -2,6 +2,7 @@ import { GetStaticProps } from 'next'
 import Link from 'next/link'
 import { RichText } from 'prismic-reactjs'
 import Prismic from '@prismicio/client'
+import { motion } from "framer-motion"
 
 import SEO from '../components/SEO'
 import { prismicClient } from '../services/prismic'
@@ -28,17 +29,31 @@ type HomeProps = {
 
 export default function Home({ lastPost, allPosts }: HomeProps) {
   return (
-    <div className={styles.homeContainer}>
+
+    <div
+      className={styles.homeContainer}
+    >
       <SEO title="Home" description="Tudo sobre o mundo da programação" />
       <h2>Último post</h2>
       <Link href={`/post/${lastPost.slug}`}>
         <a className={styles.lastPost}>
-          <img src={lastPost.thumbnail.url} alt={lastPost.thumbnail.alt} />
-          <div className={styles.wrapperInfolastPost}>
+          <motion.img
+            src={lastPost.thumbnail.url}
+            alt={lastPost.thumbnail.alt}
+            initial={{ x: -50, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.8 }}
+            className={styles.wrapperInfolastPost}
+          >
             <time>{lastPost.updatedAt}</time>
             <h1>{lastPost.title}</h1>
             <p>{lastPost.except}</p>
-          </div>
+          </motion.div>
         </a>
       </Link>
       <hr />

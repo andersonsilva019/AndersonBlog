@@ -1,4 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next"
+import { animateScroll as scroll } from "react-scroll";
+import { motion } from "framer-motion"
 import Link from "next/link";
 import Image from 'next/image'
 
@@ -26,15 +28,24 @@ export default function Post({ post }) {
     }
   });
 
+  const scrollToTop = () => {
+    scroll.scrollToTop()
+  }
+
   return (
-    <article className={styles.post}>
+    <motion.article
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.8 }}
+      className={styles.post}
+    >
       <SEO title={post.title} description={post.except.substring(150, 0)} image={post.thumbnail.url} />
       <aside className={styles.breadcrumb}>
         <Link href="/">
           <a>Home</a>
         </Link>
         <MdKeyboardArrowRight size={20} />
-        <span>{post.slug}</span>
+        <span>{post.title}</span>
       </aside>
       <time>{post.updatedAt}</time>
       <Image
@@ -48,7 +59,10 @@ export default function Post({ post }) {
       <div className={styles.content}>
         {blogContent}
       </div>
-    </article>
+      <button type="button" onClick={scrollToTop}>
+        Voltar para o topo
+      </button>
+    </motion.article >
   )
 }
 

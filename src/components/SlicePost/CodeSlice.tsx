@@ -13,7 +13,6 @@ export function CodeSlice({ content }) {
       language="javascript"
       style={tomorrow}
       showLineNumbers
-      customStyle={{}}
       codeTagProps={{
         style: customStyle,
       }}
