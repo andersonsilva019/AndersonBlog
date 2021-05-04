@@ -20,7 +20,7 @@ export default function Post({ post }) {
     if (slice.slice_type === "text") {
       return <TextSlice slice={slice} key={index} />;
     } else if (slice.slice_type === 'code') {
-      return <CodeSlice content={slice.primary.code_field} key={index} />;
+      return <CodeSlice language={slice.primary.language} content={slice.primary.code_field} key={index} />;
     } else if (slice.slice_type === 'image') {
       return <ImageSlice slice={slice} />
     } else {
@@ -39,7 +39,11 @@ export default function Post({ post }) {
       transition={{ duration: 0.5 }}
       className={styles.post}
     >
-      <SEO title={post.title} description={post.except.substring(150, 0)} image={post.thumbnail.url} />
+      <SEO
+        title={post.title}
+        description={post.except.substring(150, 0)}
+        image={post.thumbnail.url}
+      />
       <aside className={styles.breadcrumb}>
         <Link href="/">
           <a>Home</a>
@@ -53,7 +57,7 @@ export default function Post({ post }) {
         alt={post.thumbnail.alt}
         width={760}
         height={400}
-        objectFit="fill"
+        objectFit="cover"
       />
       <h1>{post.title}</h1>
       <div className={styles.content}>

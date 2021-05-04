@@ -46,7 +46,7 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
             <Image
               src={lastPost.thumbnail.url}
               alt={lastPost.thumbnail.alt}
-              objectFit="fill"
+              objectFit="cover"
               width={730}
               height={450}
             />
