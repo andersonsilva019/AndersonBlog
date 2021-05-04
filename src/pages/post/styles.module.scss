@@ -19,11 +19,16 @@
   }
 
   time {
-    display: inline-block;
+    display: flex;
     margin: 2rem 0 1rem;
     opacity: 0.5;
     font-weight: 500;
     color: var(--white);
+    align-items: center;
+
+    svg {
+      margin-right: 0.5rem;
+    }
   }
 
   h1 {

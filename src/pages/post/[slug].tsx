@@ -1,5 +1,6 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import { animateScroll as scroll } from "react-scroll";
+import { MdDateRange } from 'react-icons/md'
 import { motion } from "framer-motion"
 import Link from "next/link";
 import Image from 'next/image'
@@ -51,7 +52,10 @@ export default function Post({ post }) {
         <MdKeyboardArrowRight size={20} />
         <span>{post.title}</span>
       </aside>
-      <time>{post.createdAt}</time>
+      <time>
+        <MdDateRange color="#FFF" size={20} />
+        {post.createdAt}
+      </time>
       <Image
         src={post.thumbnail.url}
         alt={post.thumbnail.alt}

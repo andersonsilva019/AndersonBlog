@@ -38,7 +38,7 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
       <SEO title="Home" description="Tudo sobre o mundo da programação" />
       <h2>Último post</h2>
       <Link href={`/post/${lastPost.slug}`}>
-        <a className={styles.lastPost}>
+        <a className={styles.lastPost} title={lastPost.title}>
           <motion.figure
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
