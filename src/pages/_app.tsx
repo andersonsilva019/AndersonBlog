@@ -2,9 +2,9 @@ import { AppProps } from 'next/app'
 import { Layout } from '../Layout'
 import '../styles/global.scss'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <Layout>
+    <Layout router={router}>
       <Component {...pageProps} />
     </Layout>
   )

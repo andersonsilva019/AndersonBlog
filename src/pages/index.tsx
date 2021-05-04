@@ -42,7 +42,7 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
           <motion.figure
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.6 }}
+            transition={{ delay: 0.4, duration: 0.6 }}
           >
             <Image
               src={lastPost.thumbnail.url}
@@ -55,7 +55,7 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.6 }}
+            transition={{ delay: 0.8 }}
             className={styles.wrapperInfolastPost}
           >
             <time>
