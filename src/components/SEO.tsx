@@ -7,9 +7,6 @@ interface SEOProps {
   shouldIndexPage?: boolean;
 }
 
-
-const API_URL = process.env.NODE_ENV === 'production' ? 'https://personnel-blog.vercel.app/' : 'http://localhost:3000'
-
 export default function SEO({
   title,
   description,
@@ -36,6 +33,7 @@ export default function SEO({
 
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
+      <meta property="og:url" content="https://personnel-blog.vercel.app/" />
       <meta property="og:locale" content="pt_BR" />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content={pageTitle} />
