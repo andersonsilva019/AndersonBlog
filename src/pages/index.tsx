@@ -1,6 +1,7 @@
 import { GetStaticProps } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import { MdDateRange } from 'react-icons/md'
 import { RichText } from 'prismic-reactjs'
 import Prismic from '@prismicio/client'
 import { motion } from "framer-motion"
@@ -19,7 +20,7 @@ type Post = {
   title: string
   except: string
   content: string
-  updatedAt: string
+  createdAt: string
   description: string
 }
 
@@ -57,7 +58,10 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
             transition={{ delay: 0.6 }}
             className={styles.wrapperInfolastPost}
           >
-            <time>{lastPost.updatedAt}</time>
+            <time>
+              <MdDateRange color="#FFF" size={20} />
+              {lastPost.createdAt}
+            </time>
             <h1>{lastPost.title}</h1>
             <p>{lastPost.except}</p>
           </motion.div>
@@ -79,7 +83,10 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
                   layout="responsive"
                 />
                 <div>
-                  <time>{post.updatedAt}</time>
+                  <time>
+                    <MdDateRange color="#FFF" size={20} />
+                    {post.createdAt}
+                  </time>
                   <h3>{post.title}</h3>
                   <p>{post.except}</p>
                 </div>
@@ -113,7 +120,7 @@ export const getStaticProps: GetStaticProps = async () => {
       title: RichText.asText(post.data.title),
       except: RichText.asText(post.data.except),
       body: post.data?.body,
-      updatedAt: new Date(post.last_publication_date).toLocaleDateString('pt-BR', {
+      createdAt: new Date(post.first_publication_date).toLocaleDateString('pt-BR', {
         day: '2-digit',
         month: 'long',
         year: 'numeric'

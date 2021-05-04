@@ -51,7 +51,7 @@ export default function Post({ post }) {
         <MdKeyboardArrowRight size={20} />
         <span>{post.title}</span>
       </aside>
-      <time>{post.updatedAt}</time>
+      <time>{post.createdAt}</time>
       <Image
         src={post.thumbnail.url}
         alt={post.thumbnail.alt}
@@ -94,7 +94,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     },
     body: response.data.body,
     except: RichText.asText(response.data.except),
-    updatedAt: new Date(response.last_publication_date).toLocaleDateString('pt-BR', {
+    createdAt: new Date(response.first_publication_date).toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: 'long',
       year: 'numeric'

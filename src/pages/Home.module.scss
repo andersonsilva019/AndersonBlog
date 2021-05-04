@@ -51,6 +51,12 @@
     margin-top: 1rem;
     font-weight: 500;
     color: var(--white);
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 0.5rem;
+    }
   }
 
   h1 {
@@ -127,6 +133,11 @@
       margin-top: 1rem;
       font-weight: 500;
       color: var(--white);
+      display: flex;
+      align-items: center;
+      svg {
+        margin-right: 0.5rem;
+      }
     }
 
     h3 {
@@ -141,11 +152,11 @@
 
     p {
       margin-top: 1rem;
-      font-size: 1.25rem;
-      color: var(--white-100);
+      font-size: 1.125rem;
+      line-height: 1.875rem;
       font-weight: normal;
       text-align: justify;
-      color: var(--white);
+      color: var(--white-100);
       display: -webkit-box;
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
