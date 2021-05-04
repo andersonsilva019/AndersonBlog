@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import styles from './styles.module.scss'
 
@@ -5,8 +6,12 @@ export function Header() {
   return (
     <header className={styles.headerContainerMobile}>
       <div>
-        <img src="/logo-desktop.svg" alt="Logo <AS/>" />
-        <img src="/logo-mobile.svg" alt="Logo <AS/>" />
+        <Link href="/">
+          <a>
+            <img src="/logo-desktop.svg" alt="Logo <AS/>" />
+            <img src="/logo-mobile.svg" alt="Logo <AS/>" />
+          </a>
+        </Link>
         <div className={styles.socialIconsMobile}>
           <a href="https://github.com/andersonsilva019/">
             <FaGithub size={30} color="#FFF" />
