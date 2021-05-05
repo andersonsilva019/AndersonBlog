@@ -15,7 +15,7 @@ import { scrollToTop } from "../../utils/scrollToTop";
 
 import styles from './styles.module.scss'
 
-const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
+const transition = { duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }
 
 const variants: Variants = {
   pageInitial1: { opacity: 0, scale: 0.8, },
@@ -23,7 +23,7 @@ const variants: Variants = {
   pageExit1: {
     opacity: 0,
     scale: 0.8,
-    transition: { duration: 1.5, ...transition },
+    transition: { duration: 0.5, ...transition },
   }
 }
 

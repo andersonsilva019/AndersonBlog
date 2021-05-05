@@ -60,7 +60,11 @@ function MyApp({ Component, pageProps, }: AppProps) {
 
   return (
     <Layout>
-      <AnimatePresence exitBeforeEnter onExitComplete={handleExitComplete}>
+      <AnimatePresence
+        exitBeforeEnter
+        initial={false}
+        onExitComplete={handleExitComplete}
+      >
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
     </Layout>
