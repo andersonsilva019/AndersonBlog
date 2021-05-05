@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { MdDateRange } from 'react-icons/md'
 import { RichText } from 'prismic-reactjs'
 import Prismic from '@prismicio/client'
-import { motion } from "framer-motion"
+import { motion, Variants } from "framer-motion"
 
 import SEO from '../components/SEO'
 import { prismicClient } from '../services/prismic'
@@ -29,33 +29,48 @@ type HomeProps = {
   allPosts: Post[]
 }
 
+const transition = { duration: 0.5, ease: [0.43, 0.13, 0.23, 0.96] }
+
+const variants: Variants = {
+  pageInitial: { opacity: 0, scale: 0.8, },
+  pageAnimation: { opacity: 1, transition, scale: 1 },
+  pageExit: {
+    opacity: 0,
+    scale: 0.8,
+    transition: { duration: 1.5, ...transition },
+  }
+}
+
 export default function Home({ lastPost, allPosts }: HomeProps) {
   return (
-
-    <div
+    <motion.div
       className={styles.homeContainer}
+      variants={variants}
+      initial="pageInitial"
+      animate="pageAnimation"
+      exit="pageExit"
     >
       <SEO title="Home" description="Tudo sobre o mundo da programação" />
       <h2>Último post</h2>
       <Link href={`/post/${lastPost.slug}`}>
         <a className={styles.lastPost} title={lastPost.title}>
-          <motion.figure
+          {/* <motion.figure
             initial={{ x: -50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            <Image
-              src={lastPost.thumbnail.url}
-              alt={lastPost.thumbnail.alt}
-              objectFit="cover"
-              width={730}
-              height={450}
-            />
-          </motion.figure>
+          > */}
+          <Image
+            src={lastPost.thumbnail.url}
+            alt={lastPost.thumbnail.alt}
+            objectFit="cover"
+            width={730}
+            height={450}
+          />
+          {/* </motion.figure> */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.8 }}
+            // transition={{ delay: 0.8 }}
             className={styles.wrapperInfolastPost}
           >
             <time>
@@ -95,7 +110,7 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   )
 }
 
