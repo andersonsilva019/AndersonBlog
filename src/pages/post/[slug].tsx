@@ -15,16 +15,11 @@ import { scrollToTop } from "../../utils/scrollToTop";
 
 import styles from './styles.module.scss'
 
-const transition = { duration: 0.4, ease: [0.43, 0.13, 0.23, 0.96] }
+const transition = { duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }
 
 const variants: Variants = {
-  pageInitial1: { opacity: 0, scale: 0.8, },
+  pageInitial1: { opacity: 0, scale: 0.9, },
   pageAnimation1: { opacity: 1, transition, scale: 1 },
-  pageExit1: {
-    opacity: 0,
-    scale: 0.8,
-    transition: { duration: 0.5, ...transition },
-  }
 }
 
 export default function Post({ post }) {
@@ -48,7 +43,6 @@ export default function Post({ post }) {
       variants={variants}
       initial="pageInitial1"
       animate="pageAnimation1"
-      exit="pageExit1"
     >
       <SEO
         title={post.title}
