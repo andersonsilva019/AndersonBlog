@@ -10,6 +10,7 @@ import SEO from '../components/SEO'
 import { prismicClient } from '../services/prismic'
 
 import styles from './Home.module.scss'
+import { useEffect } from 'react'
 import { scrollToTop } from '../utils/scrollToTop'
 
 type Post = {
@@ -45,7 +46,6 @@ const variants: Variants = {
 export default function Home({ lastPost, allPosts }: HomeProps) {
   return (
     <motion.div
-      onAnimationComplete={scrollToTop}
       className={styles.homeContainer}
       variants={variants}
       initial="pageInitial"

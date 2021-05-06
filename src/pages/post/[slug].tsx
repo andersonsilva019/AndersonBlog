@@ -44,7 +44,6 @@ export default function Post({ post }) {
 
   return (
     <motion.article
-      onAnimationComplete={scrollToTop}
       className={styles.post}
       variants={variants}
       initial="pageInitial1"

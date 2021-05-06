@@ -4,6 +4,14 @@ import Router from 'next/router'
 import { Layout } from '../Layout'
 
 import '../styles/global.scss'
+import { scrollToTop } from '../utils/scrollToTop'
+
+function handleExitComplete() {
+  if (typeof window !== 'undefined') {
+    scrollToTop()
+  }
+}
+
 
 function MyApp({ Component, pageProps, router }: AppProps) {
 
@@ -27,7 +35,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
   return (
     <Layout>
-      <AnimatePresence exitBeforeEnter initial={false}>
+      <AnimatePresence
+        exitBeforeEnter
+        initial={false}
+        onExitComplete={handleExitComplete}
+      >
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
     </Layout>
