@@ -4,6 +4,7 @@ interface SEOProps {
   title: string;
   description?: string;
   image?: string;
+  type?: string
   shouldIndexPage?: boolean;
 }
 
@@ -11,6 +12,7 @@ export default function SEO({
   title,
   description,
   image,
+  type = 'website',
   shouldIndexPage = true
 }: SEOProps) {
 
@@ -34,15 +36,22 @@ export default function SEO({
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:url" content="https://personnel-blog.vercel.app/" />
-      <meta property="og:locale" content="pt_BR" />
-      <meta property="og:type" content="website" />
-      <meta property="og:site_name" content={pageTitle} />
+      <meta property="og:locale" content="pt-BR" />
+      {type && <meta property="og:type" content={type} />}
+
+      <meta property="og:site_name" content="andersonSilva" />
       <meta property="og:image" content={image} />
-      <meta property="og:image:secure_url" content={image} />
+      {/* <meta property="og:image:secure_url" content={image} />
       <meta property="og:image:alt" content="Thumbnail" />
       <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="1920" />
-      <meta property="og:image:height" content="1080" />
+      <meta property="og:image:height" content="1080" /> */}
+
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:title" content={pageTitle} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:image" content={image} />
 
     </Head>
   )

@@ -46,7 +46,11 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
       initial="pageInitial"
       animate="pageAnimation"
     >
-      <SEO title="Home" description="Tudo sobre o mundo da programação" />
+      <SEO
+        type="website"
+        title="Home"
+        description="Tudo sobre o mundo da programação. Aqui você encontra os melhores conteúdos, dicas e tutoriais para evoluir na sua carreira"
+      />
       <h2>Último post</h2>
       <Link href={`/post/${lastPost.slug}`}>
         <a className={styles.lastPost} title={lastPost.title}>

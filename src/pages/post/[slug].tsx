@@ -45,6 +45,7 @@ export default function Post({ post }) {
       animate="pageAnimation1"
     >
       <SEO
+        type="article"
         title={post.title}
         description={post.except.substring(150, 0)}
         image={post.thumbnail.url}
