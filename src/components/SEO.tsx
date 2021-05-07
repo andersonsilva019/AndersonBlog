@@ -43,9 +43,9 @@ export default function SEO({
       <meta property="og:image" content={image} />
       {/* <meta property="og:image:secure_url" content={image} />
       <meta property="og:image:alt" content="Thumbnail" />
-      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:type" content="image/png" />*/}
       <meta property="og:image:width" content="1920" />
-      <meta property="og:image:height" content="1080" /> */}
+      <meta property="og:image:height" content="1080" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary" />
