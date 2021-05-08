@@ -42,7 +42,7 @@ export default function SEO({
       {type && <meta property="og:type" content={type} />}
       {type === 'article' ? <meta property="article:author" content="Anderson Silva" /> : ''}
 
-      <meta property="og:site_name" content="andersonSilva" />
+      <meta property="og:site_name" content="AndersonSilva" />
       <meta property="og:image" content={image} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="627" />
