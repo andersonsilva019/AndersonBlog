@@ -16,7 +16,7 @@ export default function SEO({
   shouldIndexPage = true
 }: SEOProps) {
 
-  const pageTitle = `${title} | AndersonSilva`
+  const pageTitle = `${title} | Anderson Silva`
 
   return (
     <Head>
@@ -37,21 +37,21 @@ export default function SEO({
 
       <meta property="og:title" content={pageTitle} />
       {description && <meta property="og:description" content={description} />}
-      {image && <meta property="og:url" content={image} />}
+      {<meta property="og:url" content="https://personnel-blog.vercel.app/" />}
       <meta property="og:locale" content="pt-BR" />
       {type && <meta property="og:type" content={type} />}
       {type === 'article' ? <meta property="article:author" content="Anderson Silva" /> : ''}
 
       <meta property="og:site_name" content="AndersonSilva" />
-      <meta property="og:image" content={image} />
+      {image && <meta property="og:image" content={image} />}
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="627" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:title" content={pageTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={image} />
+      {description && <meta name="twitter:description" content={description} />}
+      {image && <meta name="twitter:image" content={image} />}
 
     </Head>
   )
