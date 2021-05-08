@@ -23,7 +23,7 @@ export default function SEO({
       <title>{pageTitle}</title>
       {description && <meta name="description" content={description} />}
       {image && <meta name="image" content={image} />}
-      {!shouldIndexPage && <meta name="robots" content="index, follow" />}
+      {!shouldIndexPage && <meta name="robots" content="index,follow,max-image-preview:large" />}
 
       <meta name="keywords" content="nextjs, typescript, javascript, node, react"></meta>
       <meta name="author" content="Anderson Silva" />
