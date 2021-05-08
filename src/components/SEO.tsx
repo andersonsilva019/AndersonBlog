@@ -25,6 +25,7 @@ export default function SEO({
       {image && <meta name="image" content={image} />}
       {!shouldIndexPage && <meta name="robots" content="index, follow" />}
 
+      <meta name="keywords" content="nextjs, typescript, javascript, node, react"></meta>
       <meta name="author" content="Anderson Silva" />
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
       <meta name="MobileOptimized" content="320" />
@@ -36,7 +37,7 @@ export default function SEO({
 
       <meta property="og:title" content={pageTitle} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content="https://personnel-blog.vercel.app/" />
+      <meta property="og:url" content={image} />
       <meta property="og:locale" content="pt-BR" />
       {type && <meta property="og:type" content={type} />}
       {type === 'article' ? <meta property="article:author" content="Anderson Silva" /> : ''}
