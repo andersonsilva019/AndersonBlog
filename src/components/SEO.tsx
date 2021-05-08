@@ -36,8 +36,8 @@ export default function SEO({
       <meta name="google" content="notranslate" />
 
       <meta property="og:title" content={pageTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:url" content={image} />
+      {description && <meta property="og:description" content={description} />}
+      {image && <meta property="og:url" content={image} />}
       <meta property="og:locale" content="pt-BR" />
       {type && <meta property="og:type" content={type} />}
       {type === 'article' ? <meta property="article:author" content="Anderson Silva" /> : ''}
