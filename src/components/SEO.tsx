@@ -23,8 +23,9 @@ export default function SEO({
       <title>{pageTitle}</title>
       {description && <meta name="description" content={description} />}
       {image && <meta name="image" content={image} />}
-      {!shouldIndexPage && <meta name="robots" content="noindex/nofollow" />}
+      {!shouldIndexPage && <meta name="robots" content="index, follow" />}
 
+      <meta name="author" content="Anderson Silva" />
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
       <meta name="MobileOptimized" content="320" />
       <meta name="HandheldFriendly" content="True" />
@@ -38,14 +39,12 @@ export default function SEO({
       <meta property="og:url" content="https://personnel-blog.vercel.app/" />
       <meta property="og:locale" content="pt-BR" />
       {type && <meta property="og:type" content={type} />}
+      {type === 'article' ? <meta property="article:author" content="Anderson Silva" /> : ''}
 
       <meta property="og:site_name" content="andersonSilva" />
       <meta property="og:image" content={image} />
-      {/* <meta property="og:image:secure_url" content={image} />
-      <meta property="og:image:alt" content="Thumbnail" />
-      <meta property="og:image:type" content="image/png" />*/}
-      <meta property="og:image:width" content="1920" />
-      <meta property="og:image:height" content="1080" />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="627" />
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary" />
