@@ -43,9 +43,7 @@ export default function SEO({
       {type === 'article' && <meta property="article:author" content="Anderson Silva" />}
 
       <meta property="og:site_name" content="AndersonSilva" />
-      {image && <meta key={`og:image:${image}`} property="og:image" content={image} />}
-      <meta property="og:image:width" content="1200" />
-      <meta property="og:image:height" content="628" />
+      {image && <meta property="og:image" content={image} />}
 
       {/* Twitter */}
       <meta name="twitter:card" content="summary" />
