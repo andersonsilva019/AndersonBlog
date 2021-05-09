@@ -23,18 +23,18 @@ export default function SEO({
     <Head>
       <title>{pageTitle}</title>
       {description && <meta name="description" content={description} />}
-      {image && <meta name="image" content={image} />}
-      {!shouldIndexPage && <meta name="robots" content="index,follow, max-image-preview:large" />}
+      {/* {image && <meta name="image" content={image} />} */}
+      {!shouldIndexPage && <meta name="robots" content="index,follow" />}
 
       <meta name="keywords" content="nextjs, typescript, javascript, node, react"></meta>
       <meta name="author" content="Anderson Silva" />
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
       <meta name="MobileOptimized" content="320" />
-      <meta name="HandheldFriendly" content="True" />
-      <meta name="theme-color" content="#121214" />
-      <meta name="msapplication-TileColor" content="#121214" />
-      <meta name="referrer" content="no-referrer-when-downgrade" />
-      <meta name="google" content="notranslate" />
+      {/* <meta name="HandheldFriendly" content="True" /> */}
+      {/* <meta name="theme-color" content="#121214" /> */}
+      {/* <meta name="msapplication-TileColor" content="#121214" /> */}
+      {/* <meta name="referrer" content="no-referrer-when-downgrade" /> */}
+      {/* <meta name="google" content="notranslate" /> */}
 
       <meta property="og:title" content={pageTitle} />
       {description && <meta property="og:description" content={description} />}
