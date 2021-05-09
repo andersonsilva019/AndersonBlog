@@ -1,11 +1,12 @@
 import Head from 'next/head'
 
 interface SEOProps {
-  title: string;
-  description?: string;
-  image?: string;
+  title: string
+  description?: string
+  image?: string
+  shouldExcludeTitleSuffix?: boolean
   type?: string
-  shouldIndexPage?: boolean;
+  shouldIndexPage?: boolean
 }
 
 export default function SEO({
@@ -13,17 +14,17 @@ export default function SEO({
   description,
   image,
   type = 'website',
+  shouldExcludeTitleSuffix = false,
   shouldIndexPage = true
 }: SEOProps) {
-
-  const pageTitle = `${title} | Anderson Silva`
+  const pageTitle = `${title} ${!shouldExcludeTitleSuffix ? '| Anderson Silva' : ''}`
 
   return (
     <Head>
       <title>{pageTitle}</title>
       {description && <meta name="description" content={description} />}
       {image && <meta name="image" content={image} />}
-      {!shouldIndexPage && <meta name="robots" content="index,follow,max-image-preview:large" />}
+      {!shouldIndexPage && <meta name="robots" content="index,follow, max-image-preview:large" />}
 
       <meta name="keywords" content="nextjs, typescript, javascript, node, react"></meta>
       <meta name="author" content="Anderson Silva" />

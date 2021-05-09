@@ -49,6 +49,7 @@ export default function Post({ post }) {
         title={post.title}
         description={post.except.substring(150, 0)}
         image={post.thumbnail.url}
+        shouldExcludeTitleSuffix
       />
       <aside className={styles.breadcrumb}>
         <Link href="/">
