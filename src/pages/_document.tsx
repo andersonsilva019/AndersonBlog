@@ -11,6 +11,7 @@ export default class MyDocument extends Document {
           <meta charSet="utf-8" />
           <link rel="shortcut icon" href="favicon.png" type="image/png" />
           <script data-ad-client="ca-pub-9324248521098640" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <link rel="canonical" href="https://personnel-blog.vercel.app/" key="canonical" />
         </Head>
         <body>
           <Main />
