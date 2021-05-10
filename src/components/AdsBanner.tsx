@@ -1,5 +1,11 @@
 import { useEffect } from "react";
 
+declare global {
+  interface Window {
+    adsbygoogle: { [key: string]: unknown }[]
+  }
+}
+
 export function AdBanner() {
   useEffect(() => {
     try {
