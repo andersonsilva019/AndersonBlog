@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import styles from './styles.module.scss'
 
 declare global {
   interface Window {
@@ -18,11 +19,13 @@ export function AdBanner() {
   }, []);
 
   return (
-    <ins className="adsbygoogle"
-      style={{ display: "block" }}
-      data-ad-client="ca-pub-9324248521098640"
-      data-ad-slot="7142364289"
-      data-ad-format="auto"
-      data-full-width-responsive="true"></ins>
+    <header className={styles.headerAdsense}>
+      <ins className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-9324248521098640"
+        data-ad-slot="7142364289"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    </header>
   );
 };

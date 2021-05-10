@@ -10,8 +10,6 @@ import SEO from '../components/SEO'
 import { prismicClient } from '../services/prismic'
 
 import styles from './Home.module.scss'
-import { useEffect } from 'react'
-import { scrollToTop } from '../utils/scrollToTop'
 import { AdBanner } from '../components/AdsBanner'
 
 type Post = {
