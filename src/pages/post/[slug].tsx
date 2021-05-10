@@ -14,6 +14,7 @@ import { TextSlice, ImageSlice, CodeSlice } from '../../components/SlicePost'
 import { scrollToTop } from "../../utils/scrollToTop";
 
 import styles from './styles.module.scss'
+import { AdBanner } from "../../components/AdsBanner";
 
 const transition = { duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }
 
@@ -51,6 +52,7 @@ export default function Post({ post }) {
         image={post.thumbnail.url}
         shouldExcludeTitleSuffix
       />
+      <AdBanner />
       <aside className={styles.breadcrumb}>
         <Link href="/">
           <a>Home</a>
