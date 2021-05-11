@@ -51,7 +51,6 @@ export default function Home({ lastPost, allPosts }: HomeProps) {
         description="Tudo sobre o mundo da programação. Aqui você encontra os melhores conteúdos, dicas e tutoriais para evoluir na sua carreira"
         image="https://res.cloudinary.com/drsxhihfr/image/upload/v1620433180/images/Group_5_neiwx1.png"
       />
-      <AdBanner />
       <h2>Último post</h2>
       <Link href={`/post/${lastPost.slug}`}>
         <a className={styles.lastPost} title={lastPost.title}>

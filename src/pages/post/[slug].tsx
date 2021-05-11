@@ -52,7 +52,6 @@ export default function Post({ post }) {
         image={post.thumbnail.url}
         shouldExcludeTitleSuffix
       />
-      <AdBanner />
       <aside className={styles.breadcrumb}>
         <Link href="/">
           <a>Home</a>
