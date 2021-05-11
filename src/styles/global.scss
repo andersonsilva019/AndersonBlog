@@ -16,6 +16,17 @@
 
   --black-600: #2B2D42;
   --black-900: #03071E;
+
+   /* Languages */
+
+   --typescript-bg: #3178c6;
+   --typescript-color: #FFF;
+
+   --javascript-bg: #ffd700;
+   --javascript-color: #000;
+
+   --bash-bg: #cc1625;
+   --bash-color: #FFF;
 }
 
 @media (max-width: 1080px) {
@@ -83,6 +94,26 @@ body::-webkit-scrollbar-track {
 }
 
 body::-webkit-scrollbar-thumb {
+  background-color: var(--gray-700);
+  border-radius: 20px;
+  cursor: move;
+}
+
+pre::-webkit-scrollbar-corner{
+  border: none;
+  background: none;
+}
+
+pre::-webkit-scrollbar {
+  height: 1rem;
+}
+
+pre::-webkit-scrollbar-track {
+  background:transparent;
+  border: none;
+}
+
+pre::-webkit-scrollbar-thumb {
   background-color: var(--gray-700);
   border-radius: 20px;
   cursor: move;

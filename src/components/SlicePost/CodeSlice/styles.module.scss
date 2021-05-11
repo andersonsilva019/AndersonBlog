@@ -1,0 +1,71 @@
+.typescript {
+  position: relative;
+
+  &:before {
+    content: 'TS';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background:var(--typescript-bg);
+    width: 3rem;
+    height: 1rem;
+    color: var(--typscript-color);
+    font-weight: bold;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+
+    margin-top: -0.5rem;
+    border-radius: 0.25rem;
+  }
+}
+
+.bash {
+  position: relative;
+
+  &:before {
+    content: 'BASH';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background:var(--bash-bg);
+    width: 3rem;
+    height: 1rem;
+    color: var(--bash-color);
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+
+    margin-top: -0.5rem;
+    border-radius: 0.25rem;
+  }
+}
+
+.javascript {
+  position: relative;
+
+  &:before {
+    content: 'JS';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background:var(--javascript-bg);
+    width: 3rem;
+    height: 1rem;
+    color: var(--javascript-color);
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+
+    margin-top: -0.5rem;
+    border-radius: 0.25rem;
+  }
+}
