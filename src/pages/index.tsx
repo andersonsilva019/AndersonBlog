@@ -115,7 +115,7 @@ export const getStaticProps: GetStaticProps = async () => {
     Prismic.Predicates.at('document.type', 'article'),
     {
       pageSize: 7,
-      // orderings: '[article.first_publication_date desc]'
+      orderings: '[document.first_publication_date desc]'
     }
   )
 
@@ -137,7 +137,7 @@ export const getStaticProps: GetStaticProps = async () => {
     }
   })
 
-  const lastPost = posts.pop()
+  const lastPost = posts.shift()
   const allPosts = [...posts]
 
   return {
