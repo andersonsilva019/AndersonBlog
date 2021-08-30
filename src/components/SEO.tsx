@@ -44,7 +44,6 @@ export default function SEO({
       <meta name="twitter:title" content={pageTitle} />
       {description && <meta name="twitter:description" content={description} />}
       {image && <meta name="twitter:image" content={image} />}
-      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9324248521098640" />
     </Head>
   )
 }
