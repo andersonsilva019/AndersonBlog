@@ -1,12 +1,17 @@
 import Image from 'next/image'
 import styles from './styles.module.scss'
 
-export function ImageSlice({ slice }) {
+export type ImageSliceProps = {
+  src: string
+  alt: string
+}
+
+export function ImageSlice({ src, alt }: ImageSliceProps) {
   return (
     <div className={styles.imageSliceContainer}>
       <Image
-        src={slice.primary.image_field.url}
-        alt={slice.primary.image_field.alt}
+        src={src}
+        alt={alt}
         width={560}
         height={400}
         objectFit="contain"

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from 'next/image'
 
 import { MdKeyboardArrowRight } from 'react-icons/md'
-import { RichText } from 'prismic-reactjs'
+import { RichText, RichTextBlock } from 'prismic-reactjs'
 
 import { prismicClient } from "../../services/prismic"
 import SEO from "../../components/SEO"
@@ -14,7 +14,6 @@ import { TextSlice, ImageSlice, CodeSlice } from '../../components/SlicePost'
 import { scrollToTop } from "../../utils/scrollToTop";
 
 import styles from './styles.module.scss'
-import { AdBanner } from "../../components/AdsBanner";
 
 const transition = { duration: 0.8, ease: [0.43, 0.13, 0.23, 0.96] }
 
@@ -23,20 +22,75 @@ const variants: Variants = {
   pageAnimation1: { opacity: 1, transition, scale: 1 },
 }
 
-export default function Post({ post }) {
+export type SliceText = {
+  slice_type: 'text'
+  primary: {
+    content: RichTextBlock[]
+  }
+}
+
+export type SliceCode = {
+  slice_type: 'code'
+  primary: {
+    code_field: RichTextBlock[]
+    language: string
+  }
+}
+
+export type SliceImage = {
+  slice_type: 'image'
+  primary: {
+    image_field: {
+      url: string
+      alt: string
+    }
+  }
+}
+type Post = {
+  title: string
+  except: string
+  thumbnail: {
+    alt: string
+    url: string
+  }
+  createdAt: string
+  body: Array<SliceText | SliceCode | SliceImage>
+}
+
+export type PostProps = {
+  post: Post
+}
+
+export default function Post({ post }: PostProps) {
+
   const blogContent = post.body.map((slice, index) => {
     if (slice.slice_type === "text") {
-      return <TextSlice slice={slice} key={index} />;
+      return (
+        <TextSlice
+          key={index}
+          content={slice.primary.content}
+        />
+      )
     } else if (slice.slice_type === 'code') {
-      return <CodeSlice language={slice.primary.language} content={slice.primary.code_field} key={index} />;
+      return (
+        <CodeSlice
+          key={index}
+          language={slice.primary.language}
+          content={slice.primary.code_field}
+        />
+      )
     } else if (slice.slice_type === 'image') {
-      return <ImageSlice slice={slice} />
+      return (
+        <ImageSlice
+          key={slice.primary.image_field.url}
+          src={slice.primary.image_field.url}
+          alt={slice.primary.image_field.alt}
+        />
+      )
     } else {
       return null
     }
   });
-
-
 
   return (
     <motion.article
