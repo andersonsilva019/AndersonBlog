@@ -10,7 +10,6 @@ import SEO from '../components/SEO'
 import { prismicClient } from '../services/prismic'
 
 import styles from './Home.module.scss'
-import { AdBanner } from '../components/AdsBanner'
 
 type Post = {
   slug: string

@@ -1,6 +1,10 @@
-import { RichText } from "prismic-reactjs";
+import { RichText, RichTextBlock } from "prismic-reactjs";
 
-export function TextSlice({ slice }) {
-  return <div>{RichText.render(slice.primary.content)}</div>;
+export type TextSliceProps = {
+  content: RichTextBlock[]
+}
+
+export function TextSlice({ content }: TextSliceProps) {
+  return <div>{RichText.render(content)}</div>;
 };
 

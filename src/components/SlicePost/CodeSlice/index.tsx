@@ -1,10 +1,15 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { RichText } from "prismic-reactjs";
+import { RichText, RichTextBlock } from "prismic-reactjs";
 
 import styles from './styles.module.scss'
 
-export function CodeSlice({ content, language }) {
+export type CodeSliceProps = {
+  content: RichTextBlock[]
+  language: string
+}
+
+export function CodeSlice({ content, language }: CodeSliceProps) {
   return (
     <div className={styles[language]}>
       <SyntaxHighlighter
@@ -21,8 +26,7 @@ export function CodeSlice({ content, language }) {
         showLineNumbers={language !== 'bash' ? true : false}
       >
         {RichText.asText(content)}
-      asdas
-    </SyntaxHighlighter>
+      </SyntaxHighlighter>
     </div>
   );
 };
