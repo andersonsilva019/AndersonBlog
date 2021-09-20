@@ -6,6 +6,7 @@ type SEOProps = {
   title: string
   description?: string
   image?: string
+  imagePost?: string
   router: NextRouter
   children?: React.ReactNode
 }
@@ -13,7 +14,7 @@ type SEOProps = {
 const favicon = '/favicon.png'
 
 export const SEO = withRouter(
-  ({ title, description, image = '', router, children }: SEOProps) => (
+  ({ title, description, image = '', router, children, imagePost = '' }: SEOProps) => (
     <Head>
       {/* DEFAULT */}
 
@@ -48,6 +49,14 @@ export const SEO = withRouter(
           property="og:image"
           key="og:image"
           content={`https://andersonnsilva.site${image}`}
+        />
+      )}
+
+      {imagePost != undefined && (
+        <meta
+          property="og:image"
+          key="og:image"
+          content={imagePost}
         />
       )}
 

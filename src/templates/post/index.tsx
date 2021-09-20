@@ -99,7 +99,7 @@ export default function Post({ post }: PostTemplateProps) {
       <SEO
         title={post.title}
         description={post.except.substring(150, 0)}
-        image={post.thumbnail.url}
+        imagePost={post.thumbnail.url}
       />
       <aside className={styles.breadcrumb}>
         <Link href="/">
