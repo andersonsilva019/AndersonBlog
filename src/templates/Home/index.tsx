@@ -32,6 +32,7 @@ export function Home({ lastPost, allPosts }: HomeTemplateProps) {
       <SEO
         title="Home"
         description="Tudo sobre o mundo da programação. Aqui você encontra os melhores conteúdos, dicas e tutoriais para evoluir na sua carreira"
+        image='/andersonsilva.png'
       />
       <motion.div
         className={styles.homeContainer}

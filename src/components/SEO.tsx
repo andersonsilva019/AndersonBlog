@@ -10,12 +10,10 @@ type SEOProps = {
   children?: React.ReactNode
 }
 
-const ogImage = '/andersonsilva.png'
 const favicon = '/favicon.png'
 
-
 export const SEO = withRouter(
-  ({ title, description, image = ogImage, router, children }: SEOProps) => (
+  ({ title, description, image = '', router, children }: SEOProps) => (
     <Head>
       {/* DEFAULT */}
 
