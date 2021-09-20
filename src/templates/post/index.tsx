@@ -7,7 +7,7 @@ import { MdKeyboardArrowRight } from 'react-icons/md'
 import { RichText, RichTextBlock } from 'prismic-reactjs'
 
 
-import SEO from "../../components/SEO"
+import { SEO } from "../../components/SEO"
 import { CodeSlice } from '../../components/SlicePost/CodeSlice'
 import { ImageSlice } from '../../components/SlicePost/ImageSlice'
 import { TextSlice } from '../../components/SlicePost/TextSlice'
@@ -97,11 +97,8 @@ export default function Post({ post }: PostTemplateProps) {
       animate="pageAnimation1"
     >
       <SEO
-        type="article"
         title={post.title}
         description={post.except.substring(150, 0)}
-        image={post.thumbnail.url}
-        shouldExcludeTitleSuffix
       />
       <aside className={styles.breadcrumb}>
         <Link href="/">

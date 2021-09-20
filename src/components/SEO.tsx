@@ -1,49 +1,90 @@
+import React from 'react'
 import Head from 'next/head'
+import { NextRouter, withRouter } from 'next/router'
 
-interface SEOProps {
+type SEOProps = {
   title: string
   description?: string
   image?: string
-  shouldExcludeTitleSuffix?: boolean
-  type?: string
-  shouldIndexPage?: boolean
+  router: NextRouter
+  children?: React.ReactNode
 }
 
-export default function SEO({
-  title,
-  description,
-  image,
-  type = 'website',
-  shouldExcludeTitleSuffix = false,
-  shouldIndexPage = true
-}: SEOProps) {
-  const pageTitle = `${title} ${!shouldExcludeTitleSuffix ? '| Anderson Silva' : ''}`
+const ogImage = 'https://res.cloudinary.com/drsxhihfr/image/upload/v1620433180/images/Group_5_neiwx1.png'
+const favicon = '/favicon.png'
 
-  return (
+
+
+export const SEO = withRouter(
+  ({ title, description, image = ogImage, router, children }: SEOProps) => (
     <Head>
-      <title>{pageTitle}</title>
-      {description && <meta name="description" content={description} />}
-      {!shouldIndexPage && <meta name="robots" content="index,follow" />}
+      {/* DEFAULT */}
 
-      <meta name="keywords" content="nextjs, typescript, javascript, node, react"></meta>
-      <meta name="author" content="Anderson Silva" />
-      <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
-      <meta name="MobileOptimized" content="320" />
-      <meta property="og:title" content={pageTitle} />
-      {description && <meta property="og:description" content={description} />}
-      {image && <meta key="og:url" property="og:url" content={image} />}
-      <meta property="og:locale" content="pt-BR" />
-      {type && <meta property="og:type" content={type} />}
-      {type === 'article' && <meta property="article:author" content="Anderson Silva" />}
+      {title != undefined && (
+        <title key="title">{title} | Anderson Silva</title>
+      )}
+      {description != undefined && (
+        <meta name="description" key="description" content={description} />
+      )}
+      <link rel="icon" type="image/x-icon" href={favicon} />
+      <link rel="apple-touch-icon" href={favicon} />
 
-      <meta property="og:site_name" content="AndersonSilva" />
-      {image && <meta property="og:image" content={image} />}
+      {/* OPEN GRAPH */}
+      <meta property="og:type" key="og:type" content="website" />
+      <meta
+        property="og:url"
+        key="og:url"
+        content={`https://andersonnsilva.site${router.pathname}`}
+      />
+      {title != undefined && (
+        <meta property="og:title" content={title} key="og:title" />
+      )}
+      {description != undefined && (
+        <meta
+          property="og:description"
+          key="og:description"
+          content={description}
+        />
+      )}
+      {image != undefined && (
+        <meta
+          property="og:image"
+          key="og:image"
+          content={`https://andersonnsilva.site${image}`}
+        />
+      )}
 
-      {/* Twitter */}
-      <meta name="twitter:card" content="summary" />
-      <meta name="twitter:title" content={pageTitle} />
-      {description && <meta name="twitter:description" content={description} />}
-      {image && <meta name="twitter:image" content={image} />}
+      {/* TWITTER */}
+      <meta
+        name="twitter:card"
+        key="twitter:card"
+        content="summary_large_image"
+      />
+      <meta name="twitter:site" key="twitter:site" content="@tannerlinsley" />
+      <meta
+        name="twitter:creator"
+        key="twitter:creator"
+        content="@tannerlinsley"
+      />
+      {title != undefined && (
+        <meta name="twitter:title" key="twitter:title" content={title} />
+      )}
+      {description != undefined && (
+        <meta
+          name="twitter:description"
+          key="twitter:description"
+          content={description}
+        />
+      )}
+      {image != undefined && (
+        <meta
+          name="twitter:image"
+          key="twitter:image"
+          content={`https://andersonnsilva.site${image}`}
+        />
+      )}
+
+      {children}
     </Head>
   )
-}
+)
