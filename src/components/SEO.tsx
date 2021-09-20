@@ -10,9 +10,8 @@ type SEOProps = {
   children?: React.ReactNode
 }
 
-const ogImage = 'https://res.cloudinary.com/drsxhihfr/image/upload/v1620433180/images/Group_5_neiwx1.png'
+const ogImage = '/andersonsilva.png'
 const favicon = '/favicon.png'
-
 
 
 export const SEO = withRouter(
