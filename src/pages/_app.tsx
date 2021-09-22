@@ -1,10 +1,10 @@
-import '../styles/nprogress.scss'
+import 'styles/nprogress.scss'
 import Router from "next/router";
 import nProgress from "nprogress";
 import { AppProps } from 'next/app'
 import { Layout } from '../Layout'
 
-import '../styles/global.scss'
+import 'styles/global.scss'
 
 Router.events.on("routeChangeStart", nProgress.start);
 Router.events.on("routeChangeError", nProgress.done);

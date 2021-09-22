@@ -2,9 +2,9 @@ import { GetStaticProps } from 'next'
 import { RichText } from 'prismic-reactjs'
 import Prismic from '@prismicio/client'
 
-import { prismicClient } from '../services/prismic'
+import { prismicClient } from 'services/prismic'
 
-import { Home, HomeTemplateProps } from '../templates/Home'
+import { Home, HomeTemplateProps } from 'templates/Home'
 
 export default function Index(props: HomeTemplateProps) {
   return (
