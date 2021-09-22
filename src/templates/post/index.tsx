@@ -1,10 +1,10 @@
-import { GetStaticPaths, GetStaticProps } from "next"
+import Head from 'next/head'
 import { MdDateRange } from 'react-icons/md'
 import { motion } from "framer-motion"
 import Link from "next/link";
 import Image from 'next/image'
 import { MdKeyboardArrowRight } from 'react-icons/md'
-import { RichText, RichTextBlock } from 'prismic-reactjs'
+import { RichTextBlock } from 'prismic-reactjs'
 
 
 import { SEO } from "../../components/SEO"
@@ -13,11 +13,10 @@ import { ImageSlice } from '../../components/SlicePost/ImageSlice'
 import { TextSlice } from '../../components/SlicePost/TextSlice'
 import { scrollToTop } from "../../utils/scrollToTop";
 
-import { prismicClient } from "../../services/prismic"
-
 import { variants } from "./animation";
 
 import styles from './styles.module.scss'
+import { useEffect } from "react";
 
 export type SliceText = {
   slice_type: 'text'
@@ -60,6 +59,13 @@ export type PostTemplateProps = {
 
 export default function Post({ post }: PostTemplateProps) {
 
+  useEffect(() => {
+    if (window !== undefined) {
+      // @ts-ignore
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  }, [])
+
   const blogContent = post.body.map((slice, index) => {
     if (slice.slice_type === "text") {
       return (
@@ -90,42 +96,51 @@ export default function Post({ post }: PostTemplateProps) {
   });
 
   return (
-    <motion.article
-      className={styles.post}
-      variants={variants}
-      initial="pageInitial1"
-      animate="pageAnimation1"
-    >
-      <SEO
-        title={post.title}
-        description={post.except.substring(150, 0)}
-        imagePost={post.thumbnail.url}
-      />
-      <aside className={styles.breadcrumb}>
-        <Link href="/">
-          <a>Home</a>
-        </Link>
-        <MdKeyboardArrowRight size={20} />
-        <span>{post.title}</span>
-      </aside>
-      <time>
-        <MdDateRange color="#FFF" size={20} />
-        {post.createdAt}
-      </time>
-      <Image
-        src={post.thumbnail.url}
-        alt={post.thumbnail.alt}
-        width={760}
-        height={400}
-        objectFit="cover"
-      />
-      <h1>{post.title}</h1>
-      <div className={styles.content}>
-        {blogContent}
-      </div>
-      <button type="button" onClick={scrollToTop}>
-        Voltar para o topo
-      </button>
-    </motion.article >
+    <>
+      <ins className="adsbygoogle"
+        style={{ display: 'block', textAlign: 'center' }}
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
+        data-ad-client="ca-pub-9324248521098640"
+        data-ad-slot="5813896120"></ins>
+      <motion.article
+        className={styles.post}
+        variants={variants}
+        initial="pageInitial1"
+        animate="pageAnimation1"
+
+      >
+        <SEO
+          title={post.title}
+          description={post.except.substring(150, 0)}
+          imagePost={post.thumbnail.url}
+        />
+        <aside className={styles.breadcrumb}>
+          <Link href="/">
+            <a>Home</a>
+          </Link>
+          <MdKeyboardArrowRight size={20} />
+          <span>{post.title}</span>
+        </aside>
+        <time>
+          <MdDateRange color="#FFF" size={20} />
+          {post.createdAt}
+        </time>
+        <Image
+          src={post.thumbnail.url}
+          alt={post.thumbnail.alt}
+          width={760}
+          height={400}
+          objectFit="cover"
+        />
+        <h1>{post.title}</h1>
+        <div className={styles.content}>
+          {blogContent}
+        </div>
+        <button type="button" onClick={scrollToTop}>
+          Voltar para o topo
+        </button>
+      </motion.article >
+    </>
   )
 }
