@@ -49,6 +49,8 @@ export function Home({ lastPost, allPosts }: HomeTemplateProps) {
               objectFit="cover"
               width={730}
               height={450}
+              placeholder="blur"
+              blurDataURL="data:LGF5]+Yk^6#M@-5c,1J5@[or[Q6."
             />
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
@@ -78,6 +80,8 @@ export function Home({ lastPost, allPosts }: HomeTemplateProps) {
                     height={200}
                     objectFit="cover"
                     layout="responsive"
+                    placeholder="blur"
+                    blurDataURL="data:LGF5]+Yk^6#M@-5c,1J5@[or[Q6."
                   />
                   <div>
                     <time>

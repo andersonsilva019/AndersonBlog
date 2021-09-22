@@ -15,6 +15,8 @@ export function ImageSlice({ src, alt }: ImageSliceProps) {
         width={560}
         height={400}
         objectFit="contain"
+        placeholder="blur"
+        blurDataURL="data:LCPQBF~W~qn$xaWBaeay?boJWAay"
       />
     </div>
   )

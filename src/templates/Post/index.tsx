@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import { useEffect } from "react";
 import { MdDateRange } from 'react-icons/md'
 import { motion } from "framer-motion"
 import Link from "next/link";
@@ -7,16 +7,15 @@ import { MdKeyboardArrowRight } from 'react-icons/md'
 import { RichTextBlock } from 'prismic-reactjs'
 
 
-import { SEO } from "../../components/SEO"
-import { CodeSlice } from '../../components/SlicePost/CodeSlice'
-import { ImageSlice } from '../../components/SlicePost/ImageSlice'
-import { TextSlice } from '../../components/SlicePost/TextSlice'
-import { scrollToTop } from "../../utils/scrollToTop";
+import { SEO } from "components/SEO"
+import { CodeSlice } from 'components/SlicePost/CodeSlice'
+import { ImageSlice } from 'components/SlicePost/ImageSlice'
+import { TextSlice } from 'components/SlicePost/TextSlice'
+import { scrollToTop } from "utils/scrollToTop";
 
 import { variants } from "./animation";
 
 import styles from './styles.module.scss'
-import { useEffect } from "react";
 
 export type SliceText = {
   slice_type: 'text'
@@ -57,7 +56,7 @@ export type PostTemplateProps = {
   post: Post
 }
 
-export default function Post({ post }: PostTemplateProps) {
+export function Post({ post }: PostTemplateProps) {
 
   useEffect(() => {
     if (window !== undefined) {
@@ -101,7 +100,6 @@ export default function Post({ post }: PostTemplateProps) {
       variants={variants}
       initial="pageInitial1"
       animate="pageAnimation1"
-
     >
       <SEO
         title={post.title}
@@ -132,6 +130,8 @@ export default function Post({ post }: PostTemplateProps) {
         width={760}
         height={400}
         objectFit="cover"
+        placeholder="blur"
+        blurDataURL="data:LGF5]+Yk^6#M@-5c,1J5@[or[Q6."
       />
       <h1>{post.title}</h1>
       <div className={styles.content}>
@@ -140,6 +140,6 @@ export default function Post({ post }: PostTemplateProps) {
       <button type="button" onClick={scrollToTop}>
         Voltar para o topo
       </button>
-    </motion.article >
+    </motion.article>
   )
 }
