@@ -1,9 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next"
 import { RichText } from 'prismic-reactjs'
+import { prismicClient } from "services/prismic"
 
-import { prismicClient } from "../../services/prismic"
-
-import Post, { PostTemplateProps } from "../../templates/post";
+import { Post, PostTemplateProps } from "templates/Post";
 
 export default function Index(props: PostTemplateProps) {
 
