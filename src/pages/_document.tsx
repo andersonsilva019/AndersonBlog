@@ -21,7 +21,7 @@ export default class MyDocument extends Document {
             }}
           />
           <link rel="shortcut icon" href="favicon.png" type="image/png" />
-          <link rel="canonical" href="https://personnel-blog.vercel.app/" key="canonical" />
+          <link rel="canonical" href="https://andersonnsilva.site/" key="canonical" />
         </Head>
         <body>
           <Main />

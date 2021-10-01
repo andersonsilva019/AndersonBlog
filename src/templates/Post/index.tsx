@@ -58,13 +58,6 @@ export type PostTemplateProps = {
 
 export function Post({ post }: PostTemplateProps) {
 
-  useEffect(() => {
-    if (window !== undefined) {
-      // @ts-ignore
-      (adsbygoogle = window.adsbygoogle || []).push({});
-    }
-  }, [])
-
   const blogContent = post.body.map((slice, index) => {
     if (slice.slice_type === "text") {
       return (
@@ -117,13 +110,6 @@ export function Post({ post }: PostTemplateProps) {
         <MdDateRange color="#FFF" size={20} />
         {post.createdAt}
       </time>
-      <ins className="adsbygoogle"
-        style={{ display: 'block', textAlign: 'center' }}
-        data-ad-layout="in-article"
-        data-ad-format="fluid"
-        data-ad-client="ca-pub-9324248521098640"
-        data-ad-slot="5813896120">
-      </ins>
       <Image
         src={post.thumbnail.url}
         alt={post.thumbnail.alt}
