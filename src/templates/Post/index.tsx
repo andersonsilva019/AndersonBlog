@@ -99,6 +99,17 @@ export function Post({ post }: PostTemplateProps) {
         description={post.except.substring(150, 0)}
         imagePost={post.thumbnail.url}
       />
+      <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3869788745321127"
+        crossOrigin="anonymous"></script>
+      <ins className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-3869788745321127"
+        data-ad-slot="9337590588"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({ });
+      </script>
       <aside className={styles.breadcrumb}>
         <Link href="/">
           <a>Home</a>
