@@ -32,7 +32,7 @@ export const SEO = withRouter(
       <meta
         property="og:url"
         key="og:url"
-        content={`https://andersonnsilva.site${router.pathname}`}
+        content={`https://andersonnsilva.site${router.asPath}`}
       />
       {title != undefined && (
         <meta property="og:title" content={title} key="og:title" />
