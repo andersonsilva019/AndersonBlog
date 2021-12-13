@@ -96,7 +96,7 @@ export function Post({ post }: PostTemplateProps) {
     >
       <SEO
         title={post.title}
-        description={post.except.substring(150, 0)}
+        description={post.except.substring(150, 0).concat("...")}
         imagePost={post.thumbnail.url}
       />
       <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3869788745321127"
