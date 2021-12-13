@@ -46,7 +46,6 @@ export const SEO = withRouter(
       )}
       {image != undefined && (
         <meta
-          name="image"
           property="og:image"
           key="og:image"
           content={`https://andersonnsilva.site${image}`}
@@ -55,7 +54,6 @@ export const SEO = withRouter(
 
       {imagePost != undefined && (
         <meta
-          name="image"
           property="og:image"
           key="og:image"
           content={imagePost}
