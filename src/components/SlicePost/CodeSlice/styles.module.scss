@@ -69,3 +69,27 @@
     border-radius: 0.25rem;
   }
 }
+
+.css {
+  position: relative;
+
+  &:before {
+    content: 'CSS';
+    position: absolute;
+    top: 0;
+    right: 0;
+    background:var(--css-bg);
+    width: 3rem;
+    height: 1rem;
+    color: var(--css-color);
+    font-weight: 700;
+    font-size: 0.875rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem;
+
+    margin-top: -0.5rem;
+    border-radius: 0.25rem;
+  }
+}
