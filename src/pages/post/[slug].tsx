@@ -24,6 +24,7 @@ export const getStaticProps: GetStaticProps<PostTemplateProps> = async ({ params
 
   const prismic = prismicClient()
 
+
   const response = await prismic.getByUID('article', slug as string, {})
 
   const post = {
