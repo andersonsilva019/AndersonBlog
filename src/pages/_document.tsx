@@ -9,7 +9,7 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap" rel="stylesheet" />
           <meta charSet="utf-8" />
-          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3869788745321127"></script>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3869788745321127" crossOrigin="anonymous"></script>
           <link rel="shortcut icon" href="favicon.png" type="image/png" />
           <link rel="canonical" href="https://andersonnsilva.site/" key="canonical" />
         </Head>
