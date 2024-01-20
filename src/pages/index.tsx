@@ -1,7 +1,7 @@
-export default function Home(){
+import { Home } from "templates/Home";
+
+export default function Index() {
   return (
-    <div>
-      <h1>Portifólio</h1>
-    </div>
+    <Home />
   )
 }
