@@ -111,8 +111,8 @@ export function Post({ post }: PostTemplateProps) {
         (adsbygoogle = window.adsbygoogle || []).push({ });
       </script>
       <aside className={styles.breadcrumb}>
-        <Link href="/">
-          <a>Home</a>
+        <Link href="/blog">
+          <a>Início</a>
         </Link>
         <MdKeyboardArrowRight size={20} />
         <span>{post.title}</span>

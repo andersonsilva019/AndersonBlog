@@ -20,28 +20,28 @@ export type PostProps = {
   createdAt: string
 }
 
-export type HomeTemplateProps = {
+export type BlogTemplateProps = {
   lastPost: PostProps
   allPosts: PostProps[]
 }
 
 
-export function Home({ lastPost, allPosts }: HomeTemplateProps) {
+export function Blog({ lastPost, allPosts }: BlogTemplateProps) {
   return (
     <>
       <SEO
-        title="Home"
+        title="Blog"
         description="Tudo sobre o mundo da programação. Aqui você encontra os melhores conteúdos, dicas e tutoriais para evoluir na sua carreira"
         image='/andersonsilva.png'
       />
       <motion.div
-        className={styles.homeContainer}
+        className={styles.blogContainer}
         variants={variantsContainer}
         initial="pageInitial"
         animate="pageAnimation"
       >
         <h2>Último post</h2>
-        <Link href={`/post/${lastPost.slug}`}>
+        <Link href={`/blog/post/${lastPost.slug}`}>
           <a className={styles.lastPost} title={lastPost.title}>
             <Image
               src={lastPost.thumbnail.url}
@@ -71,7 +71,7 @@ export function Home({ lastPost, allPosts }: HomeTemplateProps) {
         <ul className={styles.sectionMorePosts}>
           {allPosts.map(post => (
             <li className={styles.posts} title={post.title} key={post.slug}>
-              <Link href={`/post/${post.slug}`}>
+              <Link href={`/blog/post/${post.slug}`}>
                 <a>
                   <Image
                     src={post.thumbnail.url}
