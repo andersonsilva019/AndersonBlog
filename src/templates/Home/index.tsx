@@ -54,6 +54,12 @@ export function Home() {
           </li>
         </ul>
       </section>
+
+      <section className={styles.skillsSection}>
+        <div>
+          <img src="/bg-stack.svg" alt="" />
+        </div>
+      </section>
     </main>
   )
 }
