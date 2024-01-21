@@ -20,6 +20,40 @@ export function Home() {
           I also have academic projects developed with React-Native.
         </p>
       </section>
+
+      <section className={styles.experienceSection}>
+        <h2>Work experience</h2>
+
+        <ul className={styles.experienceListContainer}>
+
+          <li className={styles.experienceListItem}>
+            <img src="/bg.png" alt="" />
+            <div>
+              <strong>Insight Data Science Lab</strong>
+              <p>Front-end Developer</p>
+              <a href="">Learn more</a>
+            </div>
+          </li>
+
+          <li className={styles.experienceListItem}>
+            <img src="/bg.png" alt="" />
+            <div>
+              <strong>Insight Data Science Lab</strong>
+              <p>Front-end Developer</p>
+              <a href="">Learn more</a>
+            </div>
+          </li>
+
+          <li className={styles.experienceListItem}>
+            <img src="/bg.png" alt="" />
+            <div>
+              <strong>Insight Data Science Lab</strong>
+              <p>Front-end Developer</p>
+              <a href="">Learn more</a>
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
   )
 }
