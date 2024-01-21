@@ -5,14 +5,14 @@ export function Footer() {
   return (
     <footer className={styles.footer}>
       <hr />
-      <h2>Contato</h2>
+      <h2>Contact</h2>
       <p>
-        Estou ansioso para ouvir de você e discutir como posso contribuir para o sucesso do seu projeto.
-        Se você tiver alguma dúvida, ideia ou apenas queira trocar algumas palavras sobre desenvolvimento de software,
-        fique à vontade para entrar em contato. Estou aqui para ajudar!
+        If you have any questions, ideas, or
+        just want to exchange a few words about software development,
+        feel free to reach out. I'm here to help!
       </p>
 
-      <p >andersonnsilva015@gmail.com</p>
+      <p>andersonnsilva015@gmail.com</p>
 
       <div className={styles.socialIconsMobile}>
         <a href="https://github.com/andersonsilva019/">
