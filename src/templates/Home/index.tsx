@@ -60,6 +60,54 @@ export function Home() {
           <img src="/bg-stack.svg" alt="" />
         </div>
       </section>
+
+      <section className={styles.projectsSection}>
+        <h2>Projects</h2>
+
+        <ul className={styles.listContainerProjectsSection}>
+          <li className={styles.listItemProjectsSection}>
+            <div className={styles.listItemInfoProjectSection}>
+              <span>Featured  Project</span>
+              <strong>Example Project</strong>
+              <div>
+                <p>
+                  A web app for visualizing personalized Spotify data. View your
+                  top artists, top tracks, recently played tracks, and detailed audio
+                  information about each track. Create and save new playlists of
+                  recommended tracks based on your existing playlists and more.
+                </p>
+              </div>
+
+              <a href="">Learn more</a>
+            </div>
+
+            <div className={styles.wrapperImageProjectSection}>
+            <img src="/andersonsilva.png" alt="" />
+            </div>
+          </li>
+
+          <li className={styles.listItemProjectsSection}>
+            <div className={styles.listItemInfoProjectSection}>
+              <span>Featured  Project</span>
+              <strong>Example Project</strong>
+              <div>
+                <p>
+                  A web app for visualizing personalized Spotify data. View your
+                  top artists, top tracks, recently played tracks, and detailed audio
+                  information about each track. Create and save new playlists of
+                  recommended tracks based on your existing playlists and more.
+                </p>
+              </div>
+
+              <a href="">Learn more</a>
+            </div>
+
+            <div className={styles.wrapperImageProjectSection}>
+              <img src="/andersonsilva.png" alt="" />
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
   )
 }
