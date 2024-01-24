@@ -16,7 +16,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <Layout>
       <Script
         id='AdSense Script'
+        async
         strategy='beforeInteractive'
+        onError={e => console.log('Script failed to load', e)}
         src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9324248521098640"
       />
       <Component {...pageProps} />
