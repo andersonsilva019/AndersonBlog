@@ -61,6 +61,24 @@
   }
 }
 
+.socialIcons {
+  margin-top: 2rem;
+
+  a {
+    transition: filter 0.2s;
+
+    &+a {
+      margin-left: 1rem;
+    }
+
+    &:hover {
+      filter: brightness(0.8);
+    }
+  }
+}
+
+
+
 .experienceSection {
   width: 100%;
   max-width: 1120px;
@@ -93,9 +111,21 @@
   box-shadow: 4px 7px 26px 0px rgba(0, 0, 0, 0.12);
 
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
   padding: 2rem;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    span {
+      font-size: 0.75rem;
+      color: var(--orange-50);
+      font-weight: 700;
+    }
+  }
 
   img {
     width: 6rem;
@@ -131,6 +161,17 @@
   }
 }
 
+.experienceListActivity {
+  margin-top: 1.5rem;
+  width: 320px;
+
+  li {
+    list-style: disc;
+    color: var(--white-100);
+    font-weight: 300;
+    font-size: 0.875rem;
+  }
+}
 
 .skillsSection {
   margin: 4rem 0 2rem;

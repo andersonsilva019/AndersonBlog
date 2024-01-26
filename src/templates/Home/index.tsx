@@ -1,63 +1,60 @@
+import { HomeTemplateProps } from 'pages'
 import styles from './styles.module.scss'
+import { PrismicRichText } from '@prismicio/react'
+import { FaGithub, FaInstagram, FaLinkedin } from 'react-icons/fa'
 
-export function Home() {
+export function Home(props: HomeTemplateProps) {
   return (
     <main className={styles.mainContainer}>
 
       <section className={styles.aboutSection}>
         <div className={styles.photo}>
-          <img src="/avatar.png" alt="Imagem do rosto de Anderson" />
-          <strong>Hello! I Am <span>Anderson Silva.</span></strong>
+          <img src={props.avatar.url} alt={props.avatar.alt} />
+          <strong>Hello! I Am <span>{props.name}.</span></strong>
           <img src="/arrow-down-photo.svg" alt="Seta que aponta para a foto" />
         </div>
 
-        <h2>I'm a Front-end Developer.</h2>
+        <h2>{props.officeName}</h2>
         {/* <h4>Currently, I'm a Software Engineer at</h4> */}
-        <p>
-          I have over 3 years of experience in Front-End development with React, creating web applications.
-          Currently, I am focused on front-end development with React.js
-          and Next.js, but I also plan to venture into the back-end development with Node.js and/or Spring Boot.
-          I also have academic projects developed with React-Native.
-        </p>
+        <p>{props.aboutMe}</p>
+
+        <div className={styles.socialIcons}>
+        <a href="https://github.com/andersonsilva019/">
+          <FaGithub size={30} color="#FFF" />
+        </a>
+        <a href="https://www.linkedin.com/in/anderson-silva-3a3883188/">
+          <FaLinkedin size={30} color="#FFF" />
+        </a>
+        <a href="https://www.instagram.com/andersonn.silvaa_/">
+          <FaInstagram size={30} color="#FFF" />
+        </a>
+      </div>
       </section>
 
       <section className={styles.experienceSection}>
         <h2>Work experience</h2>
 
         <ul className={styles.experienceListContainer}>
+          {props.workExperience.map(experience => (
+            <li key={experience.company} className={styles.experienceListItem}>
+              <img src={experience.image.url} alt={experience.image.alt} />
+              <div>
+                <span>{experience.period}</span>
+                <strong>{experience.company}</strong>
+                <p>{experience.office_name}</p>
 
-          <li className={styles.experienceListItem}>
-            <img src="/bg.png" alt="" />
-            <div>
-              <strong>Insight Data Science Lab</strong>
-              <p>Front-end Developer</p>
-              <a href="">Learn more</a>
-            </div>
-          </li>
-
-          <li className={styles.experienceListItem}>
-            <img src="/bg.png" alt="" />
-            <div>
-              <strong>Insight Data Science Lab</strong>
-              <p>Front-end Developer</p>
-              <a href="">Learn more</a>
-            </div>
-          </li>
-
-          <li className={styles.experienceListItem}>
-            <img src="/bg.png" alt="" />
-            <div>
-              <strong>Insight Data Science Lab</strong>
-              <p>Front-end Developer</p>
-              <a href="">Learn more</a>
-            </div>
-          </li>
+                <ul className={styles.experienceListActivity}>
+                  <PrismicRichText field={experience.description} />
+                </ul>
+              </div>
+            </li>
+          ))}
         </ul>
       </section>
 
       <section className={styles.skillsSection}>
         <div>
-          <img src="/bg-stack.svg" alt="" />
+          <img src={props.imageSkills.url} alt={props.imageSkills.alt} />
         </div>
       </section>
 
@@ -65,47 +62,24 @@ export function Home() {
         <h2>Projects</h2>
 
         <ul className={styles.listContainerProjectsSection}>
-          <li className={styles.listItemProjectsSection}>
-            <div className={styles.listItemInfoProjectSection}>
-              <span>Featured  Project</span>
-              <strong>Example Project</strong>
-              <div>
-                <p>
-                  A web app for visualizing personalized Spotify data. View your
-                  top artists, top tracks, recently played tracks, and detailed audio
-                  information about each track. Create and save new playlists of
-                  recommended tracks based on your existing playlists and more.
-                </p>
+          {props.projects.map(project => (
+            <li key={project.title} className={styles.listItemProjectsSection}>
+              <div className={styles.listItemInfoProjectSection}>
+                {!project.isPublic && (<span>Private repository</span>)}
+                <strong>{project.title}</strong>
+                <div>
+                  <p>{project.description}</p>
+                </div>
+
+                {project.isPublic && <a href={project.link} target='_blank'>Learn more</a>}
               </div>
 
-              <a href="">Learn more</a>
-            </div>
-
-            <div className={styles.wrapperImageProjectSection}>
-            <img src="/andersonsilva.png" alt="" />
-            </div>
-          </li>
-
-          <li className={styles.listItemProjectsSection}>
-            <div className={styles.listItemInfoProjectSection}>
-              <span>Featured  Project</span>
-              <strong>Example Project</strong>
-              <div>
-                <p>
-                  A web app for visualizing personalized Spotify data. View your
-                  top artists, top tracks, recently played tracks, and detailed audio
-                  information about each track. Create and save new playlists of
-                  recommended tracks based on your existing playlists and more.
-                </p>
+              <div className={styles.wrapperImageProjectSection}>
+                <img src={project.image.url} alt={project.image.alt} />
               </div>
+            </li>
+          ))}
 
-              <a href="">Learn more</a>
-            </div>
-
-            <div className={styles.wrapperImageProjectSection}>
-              <img src="/andersonsilva.png" alt="" />
-            </div>
-          </li>
         </ul>
       </section>
     </main>
