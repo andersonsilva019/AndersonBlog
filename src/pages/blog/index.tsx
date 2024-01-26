@@ -1,6 +1,5 @@
 import { GetStaticProps } from 'next'
-import { RichText } from 'prismic-reactjs'
-import Prismic from '@prismicio/client'
+import { PrismicText } from '@prismicio/react'
 
 import { prismicClient } from 'services/prismic'
 
@@ -14,25 +13,27 @@ export default function Index(props: BlogTemplateProps) {
 
 export const getStaticProps: GetStaticProps<BlogTemplateProps> = async () => {
 
-  const prismic = prismicClient()
+  // const response = await prismic.query(
+  //   prismicClient.getBy.at('document.type', 'article'),
+  //   {
+  //     pageSize: 7,
+  //     orderings: '[document.first_publication_date desc]'
+  //   }
+  // )
 
-  const response = await prismic.query(
-    Prismic.Predicates.at('document.type', 'article'),
-    {
-      pageSize: 7,
-      orderings: '[document.first_publication_date desc]'
-    }
-  )
+  const response = await prismicClient.getAllByType('article')
 
-  const posts = response.results.map(post => {
+  const posts = response.map(post => {
     return {
       slug: post.uid,
       thumbnail: {
         url: post.data?.thumbnail.url,
         alt: post.data?.thumbnail.alt,
       },
-      title: RichText.asText(post.data.title),
-      except: RichText.asText(post.data.except),
+      title: post.data.title[0].text,
+      except: post.data.except[0].text,
+      titleRichTextField: post.data.title,
+      exceptRichTextField: post.data.except,
       body: post.data?.body,
       createdAt: new Date(post.first_publication_date).toLocaleDateString('pt-BR', {
         day: '2-digit',

@@ -1,5 +1,4 @@
 import { GetStaticPaths, GetStaticProps } from "next"
-import { RichText } from 'prismic-reactjs'
 import { prismicClient } from "services/prismic"
 
 import { Post, PostTemplateProps } from "templates/Post";
@@ -22,20 +21,18 @@ export const getStaticProps: GetStaticProps<PostTemplateProps> = async ({ params
 
   const { slug } = params
 
-  const prismic = prismicClient()
-
-
-  const response = await prismic.getByUID('article', slug as string, {})
+  const response = await prismicClient.getByUID('article', slug as string, {})
 
   const post = {
     slug,
-    title: RichText.asText(response.data.title),
+    title: response.data.title[0].text,
+    titleRichTextField: response.data.title,
+    except: response.data.except[0].text,
     thumbnail: {
       url: response.data?.thumbnail.url,
       alt: response.data?.thumbnail.alt
     },
     body: response.data.body,
-    except: RichText.asText(response.data.except),
     createdAt: new Date(response.first_publication_date).toLocaleDateString('pt-BR', {
       day: '2-digit',
       month: 'long',

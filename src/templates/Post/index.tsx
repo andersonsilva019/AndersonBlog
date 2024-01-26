@@ -1,11 +1,8 @@
-import { useEffect } from "react";
 import { MdDateRange } from 'react-icons/md'
 import { motion } from "framer-motion"
 import Link from "next/link";
 import Image from 'next/image'
 import { MdKeyboardArrowRight } from 'react-icons/md'
-import { RichTextBlock } from 'prismic-reactjs'
-
 
 import { SEO } from "components/SEO"
 import { CodeSlice } from 'components/SlicePost/CodeSlice'
@@ -16,23 +13,28 @@ import { scrollToTop } from "utils/scrollToTop";
 import { variants } from "./animation";
 
 import styles from './styles.module.scss'
+import { PrismicText } from "@prismicio/react";
+import type { RichTextField } from "@prismicio/client";
 
 export type SliceText = {
+  id: string
   slice_type: 'text'
   primary: {
-    content: RichTextBlock[]
+    content: RichTextField
   }
 }
 
 export type SliceCode = {
+  id: string
   slice_type: 'code'
   primary: {
-    code_field: RichTextBlock[]
+    code_field: RichTextField
     language: string
   }
 }
 
 export type SliceImage = {
+  id: string
   slice_type: 'image'
   primary: {
     image_field: {
@@ -43,6 +45,7 @@ export type SliceImage = {
 }
 type Post = {
   title: string
+  titleRichTextField: RichTextField
   except: string
   thumbnail: {
     alt: string
@@ -58,18 +61,18 @@ export type PostTemplateProps = {
 
 export function Post({ post }: PostTemplateProps) {
 
-  const blogContent = post.body.map((slice, index) => {
+  const blogContent = post.body.map(slice => {
     if (slice.slice_type === "text") {
       return (
         <TextSlice
-          key={index}
+          key={slice.id}
           content={slice.primary.content}
         />
       )
     } else if (slice.slice_type === 'code') {
       return (
         <CodeSlice
-          key={index}
+          key={slice.id}
           language={slice.primary.language}
           content={slice.primary.code_field}
         />
@@ -77,7 +80,7 @@ export function Post({ post }: PostTemplateProps) {
     } else if (slice.slice_type === 'image') {
       return (
         <ImageSlice
-          key={slice.primary.image_field.url}
+          key={slice.id}
           src={slice.primary.image_field.url}
           alt={slice.primary.image_field.alt}
         />
@@ -115,7 +118,7 @@ export function Post({ post }: PostTemplateProps) {
           <a>Início</a>
         </Link>
         <MdKeyboardArrowRight size={20} />
-        <span>{post.title}</span>
+        <span><PrismicText field={post.titleRichTextField} /></span>
       </aside>
       <time>
         <MdDateRange color="#FFF" size={20} />
@@ -130,7 +133,7 @@ export function Post({ post }: PostTemplateProps) {
         placeholder="blur"
         blurDataURL="data:LGF5]+Yk^6#M@-5c,1J5@[or[Q6."
       />
-      <h1>{post.title}</h1>
+      <h1><PrismicText field={post.titleRichTextField} /></h1>
       <div className={styles.content}>
         {blogContent}
       </div>

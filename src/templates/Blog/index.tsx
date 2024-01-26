@@ -8,6 +8,8 @@ import { SEO } from 'components/SEO'
 import { variantsContainer } from './animations'
 
 import styles from './styles.module.scss'
+import { PrismicText } from '@prismicio/react'
+import { RichTextField } from '@prismicio/client/*'
 
 export type PostProps = {
   slug: string
@@ -17,6 +19,8 @@ export type PostProps = {
   }
   title: string
   except: string
+  titleRichTextField: RichTextField
+  exceptRichTextField: RichTextField
   createdAt: string
 }
 
@@ -42,7 +46,7 @@ export function Blog({ lastPost, allPosts }: BlogTemplateProps) {
       >
         <h2>Último post</h2>
         <Link href={`/blog/post/${lastPost.slug}`}>
-          <a className={styles.lastPost} title={lastPost.title}>
+          <a className={styles.lastPost}>
             <Image
               src={lastPost.thumbnail.url}
               alt={lastPost.thumbnail.alt}
@@ -61,8 +65,10 @@ export function Blog({ lastPost, allPosts }: BlogTemplateProps) {
                 <MdDateRange color="#FFF" size={20} />
                 {lastPost.createdAt}
               </time>
-              <h1>{lastPost.title}</h1>
-              <p>{lastPost.except}</p>
+              <h1>
+                <PrismicText field={lastPost.titleRichTextField} />
+              </h1>
+              <p><PrismicText field={lastPost.exceptRichTextField} /> </p>
             </motion.div>
           </a>
         </Link>
@@ -70,7 +76,7 @@ export function Blog({ lastPost, allPosts }: BlogTemplateProps) {
         <h2>Mais posts</h2>
         <ul className={styles.sectionMorePosts}>
           {allPosts.map(post => (
-            <li className={styles.posts} title={post.title} key={post.slug}>
+            <li className={styles.posts} key={post.slug}>
               <Link href={`/blog/post/${post.slug}`}>
                 <a>
                   <Image
@@ -88,8 +94,10 @@ export function Blog({ lastPost, allPosts }: BlogTemplateProps) {
                       <MdDateRange color="#FFF" size={20} />
                       {post.createdAt}
                     </time>
-                    <h3>{post.title}</h3>
-                    <p>{post.except}</p>
+                    <h3>
+                      <PrismicText field={post.titleRichTextField} />
+                    </h3>
+                    <p><PrismicText field={post.exceptRichTextField} /> </p>
                   </div>
                 </a>
               </Link>
