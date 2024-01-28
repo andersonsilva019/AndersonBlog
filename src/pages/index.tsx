@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 import { prismicClient } from "services/prismic";
 import { Home } from "templates/Home";
 
+
 export type HomeTemplateProps = {
   avatar: {
     url: string
