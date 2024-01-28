@@ -1,10 +1,15 @@
-import { RichText, RichTextBlock } from "prismic-reactjs";
+import type { RichTextField } from '@prismicio/client'
+import { PrismicRichText } from "@prismicio/react";
 
 export type TextSliceProps = {
-  content: RichTextBlock[]
+  content: RichTextField
 }
 
 export function TextSlice({ content }: TextSliceProps) {
-  return <div>{RichText.render(content)}</div>;
+  return (
+    <div>
+      <PrismicRichText field={content} />
+    </div>
+  )
 };
 

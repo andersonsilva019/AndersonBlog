@@ -1,11 +1,9 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { RichText, RichTextBlock } from "prismic-reactjs";
-
 import styles from './styles.module.scss'
-
+import type { RichTextField } from "@prismicio/client";
 export type CodeSliceProps = {
-  content: RichTextBlock[]
+  content: RichTextField
   language: string
 }
 
@@ -25,7 +23,8 @@ export function CodeSlice({ content, language }: CodeSliceProps) {
         }}
         showLineNumbers={language !== 'bash' ? true : false}
       >
-        {RichText.asText(content)}
+        {/* @ts-ignore */}
+        {content[0].text}
       </SyntaxHighlighter>
     </div>
   );

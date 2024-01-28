@@ -1,166 +1,299 @@
-.homeContainer{
-  height: 100%;
-  width: 100%;
-  max-width: 1120px;
-  margin: 3.5rem auto 0;
-  padding: 0 2rem;
-
-  h2 {
-    position: relative;
-    padding: 0.5rem 1rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    &:before{
-      content: '';
-      height: 100%;
-      width: 5px;
-      background-color: var(--orange-50);
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-    }
-  }
-
-  hr {
-    margin: 2rem 0;
-    border-color: var(--blue-600);
-  }
-}
-
-.lastPost {
+.mainContainer {
   display: flex;
   flex-direction: column;
-  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
-  transition: filter 0.2s;
+.aboutSection {
+  width: 100%;
+  max-width: 1120px;
+  margin: 2rem auto;
+  padding: 2rem;
 
-  &:hover {
-    filter: brightness(0.9);
-  }
-
-    img {
-      width: 100%;
-      height: 100%;
-      max-height: 24rem;  // 384px
-      max-width: 40rem;   // 640px
-    }
-
-  time {
-    opacity: 0.5;
+  h2 {
     margin-top: 1rem;
-    font-weight: 500;
-    color: var(--white);
-    display: flex;
-    align-items: center;
-
-    svg {
-      margin-right: 0.5rem;
-    }
-  }
-
-  h1 {
-    margin-top: 1rem;
-    font-weight: 900;
-    color: var(--white);
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    font-size: 2.5rem;
   }
 
   p {
-    margin-top: 1rem;
-    font-size: 1.25rem;
+    margin-top: 2rem;
+    line-height: 1.875rem;
     font-weight: normal;
-    text-align: justify;
-    color: var(--white-100);
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    width: 45rem;
+  }
+}
+
+.photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 20rem;
+  height: 22rem;
+  flex-shrink: 0;
+  background: radial-gradient(50% 50% at 50% 50%, #763CAC 0%, rgba(16, 5, 41, 0) 100%);
+
+  img:first-of-type {
+    width: 12rem;
+    height: 12rem;
   }
 
-  @media(min-width: 972px){
-    flex-direction: row;
-    align-items: flex-start;
+  img:last-of-type {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 
-    time {
-      margin-top: 0;
+  strong {
+    position: absolute;
+    top: 22px;
+    right: -12rem;
+
+    span {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--orange-50);
     }
   }
 }
 
-.wrapperInfolastPost {
-  display: flex;
-  flex-direction: column;
+.socialIcons {
+  margin-top: 2rem;
 
-  @media(min-width: 972px){
-    margin-left: 2.25rem; // 36px
-    max-width: 24rem; // 384px
+  a {
+    transition: filter 0.2s;
+
+    &+a {
+      margin-left: 1rem;
+    }
+
+    &:hover {
+      filter: brightness(0.8);
+    }
   }
 }
 
 
-.sectionMorePosts {
+
+.experienceSection {
+  width: 100%;
+  max-width: 1120px;
+  margin: 2rem auto;
+  padding: 4rem 2rem;
+
+  h2 {
+    margin: 1rem 0 2rem;
+    font-size: 2.5rem;
+  }
+
+  background-image: url('/gradient.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+
+.experienceListContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(2, 1fr);
+  list-style: none;
   gap: 2rem;
 }
 
-.posts {
-  list-style: none;
+.experienceListItem {
+  border-top: #693B93 4px solid;
+  border-radius: 1rem;
+  background: linear-gradient(110deg, #130428 19.95%, #251043 67.64%, #38126D 107.08%, #261045 156.61%, #190634 183.21%);
+  box-shadow: 4px 7px 26px 0px rgba(0, 0, 0, 0.12);
 
-  transition: transform ease 0.2s;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 2rem;
 
-  &:hover {
-    transform: scale(1.05);
+  div {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    span {
+      font-size: 0.75rem;
+      color: var(--orange-50);
+      font-weight: 700;
+    }
+  }
+
+  img {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  strong {
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    color: var(--white-100);
   }
 
   a {
+    font-size: 0.875rem;
     text-decoration: none;
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    background-color: #2C1250;
+    border: 1px solid #693B93;
+    display: block;
+    margin-top: 1rem;
+    width: fit-content;
+    border-radius: 8px;
+  }
 
-    img {
-      width: 100%;
-      height: auto;
-      // max-height: 20rem;  // 224px
-    }
+  a:hover {
+    filter: brightness(0.8);
+  }
+}
 
-    time {
-      display: inline-block;
-      opacity: 0.5;
-      margin-top: 1rem;
-      font-weight: 500;
-      color: var(--white);
-      display: flex;
-      align-items: center;
-      svg {
-        margin-right: 0.5rem;
+.experienceListActivity {
+  margin-top: 1.5rem;
+  width: 320px;
+
+  li {
+    list-style: disc;
+    color: var(--white-100);
+    font-weight: 300;
+    font-size: 0.875rem;
+  }
+}
+
+.skillsSection {
+  margin: 4rem 0 2rem;
+}
+
+
+.projectsSection {
+  width: 100%;
+  max-width: 1120px;
+  margin: 2rem auto;
+  padding: 4rem 2rem;
+
+  h2 {
+    font-size: 2.5rem;
+  }
+}
+
+.listContainerProjectsSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  li:nth-child(odd) {
+    flex-direction: row-reverse;
+    background-position: left;
+    margin-right: 0;
+
+    div.listItemInfoProjectSection {
+      margin-right: 0;
+      margin-left: -6rem;
+      text-align: right;
+
+      p {
+        text-align: justify;
+      }
+
+      div {
+        background-image: url('/gradient-project-2.png');
+        background-repeat: no-repeat;
+        background-position: left;
+      }
+
+      a {
+        margin-left: auto;
       }
     }
+  }
+}
 
-    h3 {
-      margin-top: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
+.listItemProjectsSection {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+
+  background-image: url('/gradient.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: contain;
+
+  padding: 6rem 0;
+}
+
+.listItemInfoProjectSection {
+  display: flex;
+  flex-direction: column;
+  margin-right: -4rem;
+  z-index: 99;
+  flex: 1;
+
+  span {
+    font-size: 1rem;
+    color: var(--orange-50);
+    font-weight: 700;
+  }
+
+  strong {
+    font-size: 2rem;
+    font-weight: 600;
+  }
+
+  div {
+    background-image: url('/gradient-project-1.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1rem;
 
     p {
-      margin-top: 1rem;
-      font-size: 1.125rem;
-      line-height: 1.875rem;
-      font-weight: normal;
+      font-size: 1rem;
+      color: var(--white);
       text-align: justify;
-      color: var(--white-100);
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
     }
+  }
 
+  a {
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    background-color: #2C1250;
+    border: 1px solid #693B93;
+    display: block;
+    margin-top: 1rem;
+    width: fit-content;
+    border-radius: 8px;
+  }
+
+  a:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.wrapperImageProjectSection {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+
+  img {
+    width: 90%;
+    height: 90%;
+    border-radius: 8px;
   }
 }

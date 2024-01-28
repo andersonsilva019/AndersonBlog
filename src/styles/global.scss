@@ -14,8 +14,12 @@
 
   --gray-700: #3D3C42;
 
+  --purple-900: #1A0B2E;
+
   --black-600: #2B2D42;
   --black-900: #03071E;
+
+  --bg: #11071F;
 
    /* Languages */
 
@@ -48,16 +52,16 @@
 }
 
 body {
-  background: var(--black-900);
+  background: var(--bg);
 }
 
 body, input, textarea, button, strong {
-  font: 400 1rem Roboto, sans-serif;
+  font: 400 1rem Poppins, sans-serif;
   color: var(--white);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: Roboto, sans-serif;
+  font-family: Poppins, sans-serif;
   color: var(--gray-800)
 }
 
