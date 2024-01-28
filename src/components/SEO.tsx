@@ -32,7 +32,7 @@ export const SEO = withRouter(
       <meta
         property="og:url"
         key="og:url"
-        content={`https://andersonnsilva.site${router.asPath}`}
+        content={`https://personnel-blog.vercel.app${router.asPath}`}
       />
       {title != undefined && (
         <meta property="og:title" content={title} key="og:title" />
@@ -48,7 +48,7 @@ export const SEO = withRouter(
         <meta
           property="og:image"
           key="og:image"
-          content={`https://andersonnsilva.site${image}`}
+          content={`https://personnel-blog.vercel.app${image}`}
         />
       )}
 
@@ -85,7 +85,7 @@ export const SEO = withRouter(
         <meta
           name="twitter:image"
           key="twitter:image"
-          content={`https://andersonnsilva.site${image}`}
+          content={`https://personnel-blog.vercel.app${image}`}
         />
       )}
 
