@@ -21,7 +21,12 @@ export const getStaticProps: GetStaticProps<BlogTemplateProps> = async () => {
   //   }
   // )
 
-  const response = await prismicClient.getAllByType('article')
+  const response = await prismicClient.getAllByType('article', {
+    orderings: {
+      field: 'document.first_publication_date',
+      direction: 'desc',
+    },
+  })
 
   const posts = response.map(post => {
     return {
