@@ -6,17 +6,15 @@ export function Header() {
     <header className={styles.headerContainerMobile}>
       <div className={styles.headerWrapper}>
         <Link href="/">
-          <a>
             <img src="/logo-desktop.svg" alt="Logo <AS/>" />
             <img src="/logo-mobile.svg" alt="Logo <AS/>" />
-          </a>
         </Link>
         <nav>
           <Link href="/">
-            <a>Portfolio</a>
+            Portfolio
           </Link>
           <Link href="/blog">
-            <a>Blog</a>
+            Blog
           </Link>
         </nav>
       </div>
