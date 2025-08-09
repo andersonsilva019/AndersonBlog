@@ -1,0 +1,29 @@
+.blogContainer{
+  height: 100%;
+  width: 100%;
+  max-width: 1120px;
+  margin: 3.5rem auto 0;
+  padding: 0 2rem;
+
+  h2 {
+    position: relative;
+    padding: 0.5rem 1rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    &:before{
+      content: '';
+      height: 100%;
+      width: 5px;
+      background-color: var(--orange-50);
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+  }
+
+  hr {
+    margin: 2rem 0;
+    border-color: var(--blue-600);
+  }
+}
