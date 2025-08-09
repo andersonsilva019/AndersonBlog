@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next'
 import { PrismicText } from '@prismicio/react'
 
-import { prismicClient } from 'services/prismic'
+import { createClient } from 'services/prismic'
 
 import { Blog, BlogTemplateProps } from 'templates/Blog'
 
@@ -20,6 +20,8 @@ export const getStaticProps: GetStaticProps<BlogTemplateProps> = async () => {
   //     orderings: '[document.first_publication_date desc]'
   //   }
   // )
+
+  const prismicClient = createClient()
 
   const response = await prismicClient.getAllByType('article', {
     orderings: {
