@@ -47,8 +47,6 @@ const getPortfolioData = async () => {
 export default async function Index() {
   const data = await getPortfolioData()
 
-  console.log({data})
-
   return (
     <>
       <SEO

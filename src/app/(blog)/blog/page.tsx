@@ -1,7 +1,6 @@
 import { SEO } from 'components/SEO'
 import { createClient } from 'services/prismic'
 import { motion } from 'framer-motion'
-import { variantsContainer } from 'templates/Blog/animations'
 import styles from './styles.module.scss'
 import { LastPost } from './components/LastPost'
 import { AllPosts } from './components/AllPosts'
@@ -50,8 +49,6 @@ const getPosts = async () => {
 
 export default async function BlogPage() {
   const data = await getPosts()
-
-  console.log({ data })
 
   return (
     <>

@@ -24,9 +24,7 @@ export const LastPost = ({ lastPost }: {lastPost: any}) => {
           placeholder="blur"
           blurDataURL="data:LGF5]+Yk^6#M@-5c,1J5@[or[Q6."
         />
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
+        <div
           className={styles.wrapperInfolastPost}
         >
           <time>
@@ -39,7 +37,7 @@ export const LastPost = ({ lastPost }: {lastPost: any}) => {
           <p>
             <PrismicText field={lastPost?.exceptRichTextField} />{' '}
           </p>
-        </motion.div>
+        </div>
       </Link>
     </>
   )
